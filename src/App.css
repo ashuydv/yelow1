@@ -42287,20 +42287,20 @@ fieldset:disabled .btn {
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
-    width: 100%;
+    width: 1000px;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #f6f6f6;
-    border-radius: .4rem;
-    outline: 0
+    border-radius: .5rem;
+    outline: 0;
 }
 
 .modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1050;
+    z-index: 10050;
     width: 100vw;
     height: 100vh;
     background-color: #000
@@ -53847,7 +53847,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before {
 }
 
 .chat-conversation .right .conversation-list {
-    float: right
+    float: right;
+    margin-right: 10px;
 }
 
 .chat-conversation .right .conversation-list .ctext-wrap {
@@ -53889,7 +53890,6 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before {
     border-radius: 30px;
     background-color: #eff2f7!important;
     border-color: #eff2f7!important;
-    padding-right: 120px
 }
 
 .chat-input-links {

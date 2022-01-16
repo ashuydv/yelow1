@@ -1,13 +1,22 @@
 import './App.css';
-import Dashboard from './comp./components/Dashboard.js'
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Dashboard from './components/pages/Dashboard';
+import Sidebar from './components/Sidebar';
+//import Dashboard from './components/Dashboard.js'
+import './components/style.css'
 
 function App() {
   return (
     <div>
-      <h1>Hello</h1>
-      <Dashboard/>
+      {/* <Dashboard/> */}
+        <Header/>
+        <Sidebar/>
+        <Dashboard/>
+        <Footer/>
     </div>
   );
 }
 
 export default App;
+ 
