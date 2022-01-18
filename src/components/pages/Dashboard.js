@@ -37,24 +37,24 @@ const Dashboard = () => {
             </div>
 
             <div className="row">
-              <div className="col">
+              <div className="col-lg-3">
                 <WelcomeCard />
               </div>
-              <div className="col">
+              <div className="col-lg-3">
                 <Orders />
               </div>
-              <div className="col">
+              <div className="col-lg-3">
                 <Revenue />
               </div>
-              <div className="col">
+              <div className="col-lg-3">
                 <AveragePrice />
               </div>
-              <div class="col">
+              <div className="col-lg-12">
                 <OrdersTable />
               </div>
-              <div className="col">
+              {/* <div className="col-lg-12">
                 <LatestTransaction />
-              </div>
+              </div> */}
               {/* <div className="card">
                     <div className="card-body">
                       <div className="d-sm-flex flex-wrap">
@@ -1840,7 +1840,7 @@ const Dashboard = () => {
                   </div> */}
             </div>
 
-            <div className="row">
+            {/* <div className="row">
               <div className="col-xl-4">
                 <div className="card">
                   <div className="card-body">
@@ -2070,7 +2070,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

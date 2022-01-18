@@ -50,7 +50,7 @@ const Dashboard = () => {
                   Mega Menu <i className="mdi mdi-chevron-down"></i>
                 </button>
                 <div
-                  tabindex="-1"
+                  tabIndex="-1"
                   role="menu"
                   aria-hidden="true"
                   className="dropdown-megamenu dropdown-menu"
@@ -224,14 +224,14 @@ const Dashboard = () => {
                   />
                 </button>
                  <div
-                  tabindex="-1"
+                  tabIndex="-1"
                   role="menu"
                   aria-hidden="true"
                   className="language-switch dropdown-menu-end dropdown-menu"
                 >
                   <button
                     type="button"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="notify-item none dropdown-item"
                   >
@@ -245,7 +245,7 @@ const Dashboard = () => {
                   </button>
                   <button
                     type="button"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="notify-item none dropdown-item"
                   >
@@ -259,7 +259,7 @@ const Dashboard = () => {
                   </button>
                   <button
                     type="button"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="notify-item none dropdown-item"
                   >
@@ -273,7 +273,7 @@ const Dashboard = () => {
                   </button>
                   <button
                     type="button"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="notify-item none dropdown-item"
                   >
@@ -287,7 +287,7 @@ const Dashboard = () => {
                   </button>
                   <button
                     type="button"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="notify-item active dropdown-item"
                   >
@@ -310,7 +310,7 @@ const Dashboard = () => {
                   <i className="bx bx-customize"></i>
                 </button>
                 <div
-                  tabindex="-1"
+                  tabIndex="-1"
                   role="menu"
                   aria-hidden="true"
                   className="dropdown-menu-lg dropdown-menu-end dropdown-menu"
@@ -397,7 +397,7 @@ const Dashboard = () => {
                   <span className="badge bg-danger rounded-pill">3</span>
                 </button>
                 <div
-                  tabindex="-1"
+                  tabIndex="-1"
                   role="menu"
                   aria-hidden="true"
                   className="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 dropdown-menu"
@@ -430,7 +430,7 @@ const Dashboard = () => {
                         >
                           <div
                             className="simplebar-content-wrapper"
-                            tabindex="0"
+                            tabIndex="0"
                             role="region"
                             aria-label="scrollable content"
                             style={{ height: "auto", overflow: "hidden" }}
@@ -599,14 +599,14 @@ const Dashboard = () => {
                   <i className="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div
-                  tabindex="-1"
+                  tabIndex="-1"
                   role="menu"
                   aria-hidden="true"
                   className="dropdown-menu-end dropdown-menu"
                 >
                   <a
                     href="/profile"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="dropdown-item"
                   >
@@ -615,7 +615,7 @@ const Dashboard = () => {
                   </a>
                   <a
                     href="/crypto-wallet"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="dropdown-item"
                   >
@@ -624,7 +624,7 @@ const Dashboard = () => {
                   </a>
                   <a
                     href="#"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="dropdown-item"
                   >
@@ -634,7 +634,7 @@ const Dashboard = () => {
                   </a>
                   <a
                     href="auth-lock-screen"
-                    tabindex="0"
+                    tabIndex="0"
                     role="menuitem"
                     className="dropdown-item"
                   >
@@ -695,7 +695,7 @@ const Dashboard = () => {
                   >
                     <div
                       className="simplebar-content-wrapper"
-                      tabindex="0"
+                      tabIndex="0"
                       role="region"
                       aria-label="scrollable content"
                       style={{ height: "100%", overflow: "hidden scroll" }}
@@ -1605,122 +1605,122 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div class="col">
+                <div className="col">
                   <div>
-                    <div class="card">
-                      <div class="card-body">
+                    <div className="card">
+                      <div className="card-body">
                         <div className="mb-4 h4 card-title">Orders</div>
-                        <div class="mb-2 row">
-                          <div class="col-sm-4">
-                            <div class="search-box me-2 mb-2 d-inline-block">
-                              <div class="position-relative">
-                                <label for="search-bar-0" class="search-label">
-                                  <span id="search-bar-0-label" class="sr-only">
+                        <div className="mb-2 row">
+                          <div className="col-sm-4">
+                            <div className="search-box me-2 mb-2 d-inline-block">
+                              <div className="position-relative">
+                                <label for="search-bar-0" className="search-label">
+                                  <span id="search-bar-0-label" className="sr-only">
                                     Search this table
                                   </span>
                                   <input
                                     id="search-bar-0"
                                     type="text"
                                     aria-labelledby="search-bar-0-label"
-                                    class="form-control "
+                                    className="form-control "
                                     placeholder="Search"
                                     value=""
                                   />
                                 </label>
-                                <i class="bx bx-search-alt search-icon"></i>
+                                <i className="bx bx-search-alt search-icon"></i>
                               </div>
                             </div>
                           </div>
-                          <div class="col-sm-8">
-                            <div class="text-sm-end">
+                          <div className="col-sm-8">
+                            <div className="text-sm-end">
                               <button
                                 type="button"
-                                class="btn-rounded mb-2 me-2 btn btn-success"
+                                className="btn-rounded mb-2 me-2 btn btn-success"
                               >
-                                <i class="mdi mdi-plus me-1"></i> Add New Order
+                                <i className="mdi mdi-plus me-1"></i> Add New Order
                               </button>
                             </div>
                           </div>
                         </div>
-                        <div class="table-responsive">
-                          <div class="react-bootstrap-table">
-                            <table class="table table align-middle table-nowrap table-check">
-                              <thead class="table-light">
+                        <div className="table-responsive">
+                          <div className="react-bootstrap-table">
+                            <table className="table table align-middle table-nowrap table-check">
+                              <thead className="table-light">
                                 <tr>
                                   <th
-                                    class="selection-cell-header"
+                                    className="selection-cell-header"
                                     data-row-selection="true"
                                   >
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Order ID sort desc"
-                                    class="sortable"
+                                    className="sortable"
                                   >
-                                    Order ID<span class="caret-4-desc"></span>
+                                    Order ID<span className="caret-4-desc"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Billing Name sortable"
-                                    class="sortable"
+                                    className="sortable"
                                   >
-                                    Billing Name<span class="order-4"></span>
+                                    Billing Name<span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Date sortable"
-                                    class="sortable"
+                                    className="sortable"
                                   >
-                                    Date<span class="order-4"></span>
+                                    Date<span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Total sortable"
-                                    class="sortable"
+                                    className="sortable"
                                   >
-                                    Total<span class="order-4"></span>
+                                    Total<span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Payment Status sortable"
-                                    class="sortable"
+                                    className="sortable"
                                   >
                                     Payment Status
-                                    <span class="order-4"></span>
+                                    <span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Payment Method sortable"
-                                    class="sortable"
+                                    className="sortable"
                                   >
                                     Payment Method
-                                    <span class="order-4"></span>
+                                    <span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="View Details sortable"
-                                    class="sortable"
+                                    className="sortable"
                                   >
-                                    View Details<span class="order-4"></span>
+                                    View Details<span className="order-4"></span>
                                   </th>
-                                  <th tabindex="0">Action</th>
+                                  <th tabIndex="0">Action</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2547
@@ -1730,12 +1730,12 @@ const Dashboard = () => {
                                   <td>02 Oct 2019</td>
                                   <td>$350</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                                    <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
                                       Paid
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-mastercard me-1"></i>{" "}
+                                    <i className="fab fa-cc-mastercard me-1"></i>{" "}
                                     Mastercard
                                   </td>
                                   <td>
@@ -1747,22 +1747,22 @@ const Dashboard = () => {
                                       </Popup>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -1770,15 +1770,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2546
@@ -1788,39 +1788,39 @@ const Dashboard = () => {
                                   <td>03 Oct 2019</td>
                                   <td>$374</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                                    <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
                                       Paid
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fas fa-money-bill-alt me-1"></i>{" "}
+                                    <i className="fab fas fa-money-bill-alt me-1"></i>{" "}
                                     COD
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -1828,15 +1828,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2545
@@ -1846,38 +1846,38 @@ const Dashboard = () => {
                                   <td>04 Oct 2019</td>
                                   <td>$392</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                                    <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
                                       Paid
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-paypal me-1"></i> Paypal
+                                    <i className="fab fa-cc-paypal me-1"></i> Paypal
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -1885,15 +1885,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2544
@@ -1903,38 +1903,38 @@ const Dashboard = () => {
                                   <td>04 Oct 2019</td>
                                   <td>$404</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-warning badge bg-warning rounded-pill">
+                                    <span className="font-size-12 badge-soft-warning badge bg-warning rounded-pill">
                                       Refund
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-visa me-1"></i> Visa
+                                    <i className="fab fa-cc-visa me-1"></i> Visa
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -1942,15 +1942,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2543
@@ -1960,39 +1960,39 @@ const Dashboard = () => {
                                   <td>05 Oct 2019</td>
                                   <td>$412</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                                    <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
                                       Paid
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-mastercard me-1"></i>{" "}
+                                    <i className="fab fa-cc-mastercard me-1"></i>{" "}
                                     Mastercard
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -2000,15 +2000,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2543
@@ -2018,39 +2018,39 @@ const Dashboard = () => {
                                   <td>05 Oct 2019</td>
                                   <td>$412</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                                    <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
                                       Paid
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-mastercard me-1"></i>{" "}
+                                    <i className="fab fa-cc-mastercard me-1"></i>{" "}
                                     Mastercard
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -2058,15 +2058,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2542
@@ -2076,38 +2076,38 @@ const Dashboard = () => {
                                   <td>06 Oct 2019</td>
                                   <td>$384</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                                    <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
                                       Paid
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-paypal me-1"></i> Paypal
+                                    <i className="fab fa-cc-paypal me-1"></i> Paypal
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -2115,15 +2115,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2542
@@ -2133,38 +2133,38 @@ const Dashboard = () => {
                                   <td>06 Oct 2019</td>
                                   <td>$384</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                                    <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
                                       Paid
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-paypal me-1"></i> Paypal
+                                    <i className="fab fa-cc-paypal me-1"></i> Paypal
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -2172,15 +2172,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2541
@@ -2190,38 +2190,38 @@ const Dashboard = () => {
                                   <td>07 Oct 2019</td>
                                   <td>$380</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-danger badge bg-danger rounded-pill">
+                                    <span className="font-size-12 badge-soft-danger badge bg-danger rounded-pill">
                                       Chargeback
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-visa me-1"></i> Visa
+                                    <i className="fab fa-cc-visa me-1"></i> Visa
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -2229,15 +2229,15 @@ const Dashboard = () => {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td class="selection-cell">
+                                  <td className="selection-cell">
                                     <input
                                       type="checkbox"
-                                      class="selection-input-4"
+                                      className="selection-input-4"
                                     />
                                   </td>
                                   <td>
                                     <a
-                                      class="text-body fw-bold"
+                                      className="text-body fw-bold"
                                       href="/ecommerce-orders"
                                     >
                                       #SK2541
@@ -2247,38 +2247,38 @@ const Dashboard = () => {
                                   <td>07 Oct 2019</td>
                                   <td>$380</td>
                                   <td>
-                                    <span class="font-size-12 badge-soft-danger badge bg-danger rounded-pill">
+                                    <span className="font-size-12 badge-soft-danger badge bg-danger rounded-pill">
                                       Chargeback
                                     </span>
                                   </td>
                                   <td>
-                                    <i class="fab fa-cc-visa me-1"></i> Visa
+                                    <i className="fab fa-cc-visa me-1"></i> Visa
                                   </td>
                                   <td>
                                     <button
                                       type="button"
-                                      class="btn-sm btn-rounded btn btn-primary"
+                                      className="btn-sm btn-rounded btn btn-primary"
                                     >
                                       View Details
                                     </button>
                                   </td>
                                   <td>
-                                    <div class="d-flex gap-3">
+                                    <div className="d-flex gap-3">
                                       <a
-                                        class="text-success"
+                                        className="text-success"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-pencil font-size-18"
+                                          className="mdi mdi-pencil font-size-18"
                                           id="edittooltip"
                                         ></i>
                                       </a>
                                       <a
-                                        class="text-danger"
+                                        className="text-danger"
                                         href="/ecommerce-orders"
                                       >
                                         <i
-                                          class="mdi mdi-delete font-size-18"
+                                          className="mdi mdi-delete font-size-18"
                                           id="deletetooltip"
                                         ></i>
                                       </a>
@@ -2289,20 +2289,20 @@ const Dashboard = () => {
                             </table>
                           </div>
                         </div>
-                        <div class="pagination pagination-rounded justify-content-end mb-2">
-                          <ul class="pagination react-bootstrap-table-page-btns-ul">
-                            <li class="active page-item" title="1">
-                              <a href="#" class="page-link">
+                        <div className="pagination pagination-rounded justify-content-end mb-2">
+                          <ul className="pagination react-bootstrap-table-page-btns-ul">
+                            <li className="active page-item" title="1">
+                              <a href="#" className="page-link">
                                 1
                               </a>
                             </li>
-                            <li class="page-item" title="2">
-                              <a href="#" class="page-link">
+                            <li className="page-item" title="2">
+                              <a href="#" className="page-link">
                                 2
                               </a>
                             </li>
-                            <li class="page-item" title="next page">
-                              <a href="#" class="page-link">
+                            <li className="page-item" title="next page">
+                              <a href="#" className="page-link">
                                 &gt;
                               </a>
                             </li>
@@ -2334,7 +2334,7 @@ const Dashboard = () => {
                                     />
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Order ID sort desc"
                                     className="sortable"
                                   >
@@ -2342,7 +2342,7 @@ const Dashboard = () => {
                                     <span className="caret-4-desc"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Billing Name sortable"
                                     className="sortable"
                                   >
@@ -2350,21 +2350,21 @@ const Dashboard = () => {
                                     <span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Date sortable"
                                     className="sortable"
                                   >
                                     Date<span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Total sortable"
                                     className="sortable"
                                   >
                                     Total<span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Payment Status sortable"
                                     className="sortable"
                                   >
@@ -2372,7 +2372,7 @@ const Dashboard = () => {
                                     <span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="Payment Method sortable"
                                     className="sortable"
                                   >
@@ -2380,7 +2380,7 @@ const Dashboard = () => {
                                     <span className="order-4"></span>
                                   </th>
                                   <th
-                                    tabindex="0"
+                                    tabIndex="0"
                                     aria-label="View Details sortable"
                                     className="sortable"
                                   >

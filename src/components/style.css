@@ -11,19 +11,10 @@
     box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%);
 }
 
-.popup-overlay {
-    position: fixed;
-    inset: 0px;
-    display: flex;
-    z-index: 12000 !important;
-    pointer-events: auto;
-}
-
 .popup-content {
     width: auto !important;
     background: transparent !important;
     border: none !important;
-    box-shadow: 0px 25px 750px rgba(0, 0, 0, 0.5);
 }
 
 .chat-conversation {
@@ -107,4 +98,17 @@
 
  ::-webkit-scrollbar-thumb:hover {
     background-color: #555;
+}
+
+.popup-overlay {
+    position: fixed;
+    inset: 0px;
+    display: flex;
+    z-index: 12000 !important;
+    pointer-events: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.chat-conversation .conversation-list .dropdown .dropdown-toggle {
+    display: none;
 }

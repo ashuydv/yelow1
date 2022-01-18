@@ -3,11 +3,11 @@ import "../style.css";
 
 const PopupModal = () => {
   return (
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" aria-label="Close"></button>
+    <div id="modal" className="modal-content">
+      <div className="modal-header">
+        <button type="button" className="btn-close"></button>
       </div>
-      <div class="modal-body">
+      <div className="modal-body">
         <div className="row">
           <div className="col-8">
             <h5 className="mb-2">Order Details</h5>
@@ -82,25 +82,28 @@ const PopupModal = () => {
                     alt=""
                   />
                   <div>
-                    <p className="mb-1">Title</p>
-                    <p className="mb-1">Description</p>
-                    <p className="mb-1">Website</p>
-                    <p className="mb-1">Price</p>
+                    <p className="mb-1">Nescafe Gold</p>
+                    <p className="mb-1">Lorem, ipsum dolor...</p>
+                    <a className="mb-1" href="#">
+                      Nescafe                    </a>
+                    <p className="mb-1">Price: 25$</p>
                   </div>
                 </div>
               </div>
               <div className="col">
                 <div className="d-flex align-items-center justify-content-start border border-success px-0 p-2">
                   <img
-                    src="https:/dummyimage.com/100"
+                    src=""
                     className="img-fluid mx-2"
                     alt=""
                   />
                   <div>
-                    <p className="mb-1">Title</p>
-                    <p className="mb-1">Description</p>
-                    <p className="mb-1">Website</p>
-                    <p className="mb-1">Price</p>
+                    <p className="mb-1">Nescafe Gold</p>
+                    <p className="mb-1">Lorem, ipsum dolor...</p>
+                    <p className="mb-1">
+                      https://nescafe.com
+                    </p>
+                    <p className="mb-1">Price: 25$</p>
                   </div>
                 </div>
               </div>
@@ -115,18 +118,21 @@ const PopupModal = () => {
               </div>
               <div className="col-lg-8">
                 <div className="row mb-1 border border-success px-0 p-2">
-                  <div className="col-lg-3">
-                    <img
-                      src="https://dummyimage.com/120"
-                      className="img-fluid"
-                      alt=""
-                    />
+                  <div className="col-lg-4">
+                    <div className="card">
+                      <h1>helo</h1>
+                    </div>
                   </div>
-                  <div className="col-lg-9">
+                  <div className="col-lg-8">
                     <p className="mb-0">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Velit illo sit atque fuga placeat quasi! Quas eaque optio
-                      mollitia! Repellendus!
+                      <div className="form-group">
+                        <label for=""></label>
+                        <select className="form-control" name="" id="">
+                          <option></option>
+                          <option></option>
+                          <option></option>
+                        </select>
+                      </div>
                     </p>
                   </div>
                 </div>
@@ -147,108 +153,346 @@ const PopupModal = () => {
               <div className="card-body border border-primary rounded px-2 py-0 pt-4 h-20">
                 <div className="chat-conversation">
                   <ul className="list-unstyled mb-0">
-                    
-                    <li class="">
-                      <div class="conversation-list">
-                        <div class="ctext-wrap">
-                          <div class="conversation-name">Steven Franklin</div>
+                    <li className="">
+                      <div className="conversation-list">
+                        <div className="ctext-wrap">
+                          <div className="conversation-name">Steven Franklin</div>
                           <p>Hello!</p>
-                          <p class="chat-time mb-0">
-                            <i class="bx bx-time-five align-middle me-1"></i>{" "}
+                          <p className="chat-time mb-0">
+                            <i className="bx bx-time-five align-middle me-1"></i>{" "}
                             10:37
                           </p>
                         </div>
                       </div>
                     </li>
-                    <li class="right"><div class="conversation-list"><div class="dropdown"><a href="#" aria-haspopup="true" class="dropdown-toggle" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></a><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-end dropdown-menu"><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Copy</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Save</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Forward</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Delete</a></div></div><div class="ctext-wrap"><div class="conversation-name">Henry Wells</div><p>Wow that's great</p><p class="chat-time mb-0"><i class="bx bx-time-five align-middle me-1"></i> 10:37</p></div></div></li>
-                    <li class="">
-                      <div class="conversation-list">
-                        <div class="ctext-wrap">
-                          <div class="conversation-name">Steven Franklin</div>
-                          <p>Hello!</p>
-                          <p class="chat-time mb-0">
-                            <i class="bx bx-time-five align-middle me-1"></i>{" "}
+                    <li className="right">
+                      <div className="conversation-list">
+                        <div className="dropdown">
+                          <a
+                            href="#"
+                            aria-haspopup="true"
+                            className="dropdown-toggle"
+                            aria-expanded="false"
+                          >
+                            <i className="bx bx-dots-vertical-rounded"></i>
+                          </a>
+                          <div
+                            tabIndex="-1"
+                            role="menu"
+                            aria-hidden="true"
+                            className="dropdown-menu-end dropdown-menu"
+                          >
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Copy
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Save
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Forward
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Delete
+                            </a>
+                          </div>
+                        </div>
+                        <div className="ctext-wrap">
+                          <div className="conversation-name">Henry Wells</div>
+                          <p>Wow that's great</p>
+                          <p className="chat-time mb-0">
+                            <i className="bx bx-time-five align-middle me-1"></i>{" "}
                             10:37
                           </p>
                         </div>
                       </div>
                     </li>
-                    <li class="right"><div class="conversation-list"><div class="dropdown"><a href="#" aria-haspopup="true" class="dropdown-toggle" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></a><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-end dropdown-menu"><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Copy</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Save</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Forward</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Delete</a></div></div><div class="ctext-wrap"><div class="conversation-name">Henry Wells</div><p>Wow that's great</p><p class="chat-time mb-0"><i class="bx bx-time-five align-middle me-1"></i> 10:37</p></div></div></li>
-                    <li class="">
-                      <div class="conversation-list">
-                        <div class="ctext-wrap">
-                          <div class="conversation-name">Steven Franklin</div>
+                    <li className="">
+                      <div className="conversation-list">
+                        <div className="ctext-wrap">
+                          <div className="conversation-name">Steven Franklin</div>
                           <p>Hello!</p>
-                          <p class="chat-time mb-0">
-                            <i class="bx bx-time-five align-middle me-1"></i>{" "}
+                          <p className="chat-time mb-0">
+                            <i className="bx bx-time-five align-middle me-1"></i>{" "}
                             10:37
                           </p>
                         </div>
                       </div>
                     </li>
-                    <li class="right"><div class="conversation-list"><div class="dropdown"><a href="#" aria-haspopup="true" class="dropdown-toggle" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></a><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-end dropdown-menu"><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Copy</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Save</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Forward</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Delete</a></div></div><div class="ctext-wrap"><div class="conversation-name">Henry Wells</div><p>Wow that's great</p><p class="chat-time mb-0"><i class="bx bx-time-five align-middle me-1"></i> 10:37</p></div></div></li>
-                    <li class="">
-                      <div class="conversation-list">
-                        <div class="ctext-wrap">
-                          <div class="conversation-name">Steven Franklin</div>
-                          <p>Hello!</p>
-                          <p class="chat-time mb-0">
-                            <i class="bx bx-time-five align-middle me-1"></i>{" "}
+                    <li className="right">
+                      <div className="conversation-list">
+                        <div className="dropdown">
+                          <a
+                            href="#"
+                            aria-haspopup="true"
+                            className="dropdown-toggle"
+                            aria-expanded="false"
+                          >
+                            <i className="bx bx-dots-vertical-rounded"></i>
+                          </a>
+                          <div
+                            tabIndex="-1"
+                            role="menu"
+                            aria-hidden="true"
+                            className="dropdown-menu-end dropdown-menu"
+                          >
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Copy
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Save
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Forward
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Delete
+                            </a>
+                          </div>
+                        </div>
+                        <div className="ctext-wrap">
+                          <div className="conversation-name">Henry Wells</div>
+                          <p>Wow that's great</p>
+                          <p className="chat-time mb-0">
+                            <i className="bx bx-time-five align-middle me-1"></i>{" "}
                             10:37
                           </p>
                         </div>
                       </div>
                     </li>
-                    <li class="right"><div class="conversation-list"><div class="dropdown"><a href="#" aria-haspopup="true" class="dropdown-toggle" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></a><div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-end dropdown-menu"><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Copy</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Save</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Forward</a><a href="#" tabindex="0" role="menuitem" class="dropdown-item">Delete</a></div></div><div class="ctext-wrap"><div class="conversation-name">Henry Wells</div><p>Wow that's great</p><p class="chat-time mb-0"><i class="bx bx-time-five align-middle me-1"></i> 10:37</p></div></div></li>
+                    <li className="">
+                      <div className="conversation-list">
+                        <div className="ctext-wrap">
+                          <div className="conversation-name">Steven Franklin</div>
+                          <p>Hello!</p>
+                          <p className="chat-time mb-0">
+                            <i className="bx bx-time-five align-middle me-1"></i>{" "}
+                            10:37
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="right">
+                      <div className="conversation-list">
+                        <div className="dropdown">
+                          <a
+                            href="#"
+                            aria-haspopup="true"
+                            className="dropdown-toggle"
+                            aria-expanded="false"
+                          >
+                            <i className="bx bx-dots-vertical-rounded"></i>
+                          </a>
+                          <div
+                            tabIndex="-1"
+                            role="menu"
+                            aria-hidden="true"
+                            className="dropdown-menu-end dropdown-menu"
+                          >
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Copy
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Save
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Forward
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Delete
+                            </a>
+                          </div>
+                        </div>
+                        <div className="ctext-wrap">
+                          <div className="conversation-name">Henry Wells</div>
+                          <p>Wow that's great</p>
+                          <p className="chat-time mb-0">
+                            <i className="bx bx-time-five align-middle me-1"></i>{" "}
+                            10:37
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="">
+                      <div className="conversation-list">
+                        <div className="ctext-wrap">
+                          <div className="conversation-name">Steven Franklin</div>
+                          <p>Hello!</p>
+                          <p className="chat-time mb-0">
+                            <i className="bx bx-time-five align-middle me-1"></i>{" "}
+                            10:37
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li className="right">
+                      <div className="conversation-list">
+                        <div className="dropdown">
+                          <a
+                            href="#"
+                            aria-haspopup="true"
+                            className="dropdown-toggle"
+                            aria-expanded="false"
+                          >
+                            <i className="bx bx-dots-vertical-rounded"></i>
+                          </a>
+                          <div
+                            tabIndex="-1"
+                            role="menu"
+                            aria-hidden="true"
+                            className="dropdown-menu-end dropdown-menu"
+                          >
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Copy
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Save
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Forward
+                            </a>
+                            <a
+                              href="#"
+                              tabIndex="0"
+                              role="menuitem"
+                              className="dropdown-item"
+                            >
+                              Delete
+                            </a>
+                          </div>
+                        </div>
+                        <div className="ctext-wrap">
+                          <div className="conversation-name">Henry Wells</div>
+                          <p>Wow that's great</p>
+                          <p className="chat-time mb-0">
+                            <i className="bx bx-time-five align-middle me-1"></i>{" "}
+                            10:37
+                          </p>
+                        </div>
+                      </div>
+                    </li>
                   </ul>
                 </div>
-                <div class="p-2 chat-input-section mt-2">
-                  <div class="row">
-                    <div class="col">
-                      <div class="position-relative">
+                <div className="p-2 chat-input-section mt-2">
+                  <div className="row">
+                    <div className="col">
+                      <div className="position-relative">
                         <input
                           type="text"
-                          class="form-control chat-input"
+                          className="form-control chat-input"
                           placeholder="Enter Message..."
-                          value=""
+
                         />
-                        {/* <div class="chat-input-links">
-                          <ul class="list-inline mb-0">
-                            <li class="list-inline-item">
+                        {/* <div className="chat-input-links">
+                          <ul className="list-inline mb-0">
+                            <li className="list-inline-item">
                               <a href="/chat">
                                 <i
-                                  class="mdi mdi-emoticon-happy-outline"
+                                  className="mdi mdi-emoticon-happy-outline"
                                   id="Emojitooltip"
                                 ></i>
                               </a>
                             </li>{" "}
-                            <li class="list-inline-item">
+                            <li className="list-inline-item">
                               <a href="/chat">
                                 <i
-                                  class="mdi mdi-file-image-outline"
+                                  className="mdi mdi-file-image-outline"
                                   id="Imagetooltip"
                                 ></i>
                               </a>
                             </li>{" "}
-                            <li class="list-inline-item">
+                            <li className="list-inline-item">
                               <a href="/chat">
                                 <i
-                                  class="mdi mdi-file-document-outline"
+                                  className="mdi mdi-file-document-outline"
                                   id="Filetooltip"
                                 ></i>
                               </a>
                             </li>
                           </ul>
                         </div> */}
-                        
                       </div>
                     </div>
-                    <div class="col-auto col">
+                    <div className="col-auto col">
                       <button
                         type="button"
-                        class="btn-rounded chat-send btn btn-primary"
+                        className="btn-rounded chat-send btn btn-primary"
                       >
-                        <i class="mdi mdi-send"></i>
+                        <i className="mdi mdi-send"></i>
                       </button>
                     </div>
                   </div>
@@ -258,8 +502,8 @@ const PopupModal = () => {
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary">
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary">
           Close
         </button>
       </div>
