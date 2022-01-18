@@ -38415,7 +38415,11 @@ textarea.form-control-lg {
     border-radius: .25rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     -webkit-appearance: none;
-    appearance: none
+    appearance: none;
+}
+
+.row .col-lg-12 .form-select {
+    margin-top: 1rem;
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -42287,7 +42291,7 @@ fieldset:disabled .btn {
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
-    width: 1000px;
+    max-width: 1200px;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
