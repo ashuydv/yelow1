@@ -3,8 +3,8 @@ import Form from "./Form";
 import List from "./List";
 
 const ALL_EXPENSES = [
-  { id: 1, name: "Nescafe", amount: 20 },
-  { id: 2, name: "Nescafe Gold", amount: 5 },
+  { id: 1, name: "Item 1", amount: 20 },
+  { id: 2, name: "Item 2", amount: 5 },
 ];
 
 function Cart() {
@@ -41,16 +41,18 @@ function Cart() {
   };
 
   const handleClearExpenses = () => {
-    setExpenses([]);
+    setExpenses((expenses) => {
+      const temp = [...expenses]
+      temp.pop()
+
+      return temp;
+    })
   };
 
   return (
     <div>
       <div
-        className="card"
-        style={{
-          boxShadow: "0 0.75rem 1.5rem rgb(18 38 63 / 10%)",
-        }}
+        className="card shadow"
       >
         <div className="card-body">
           <div className="card-title">Payment Details</div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Popup from "reactjs-popup";
 import { Button } from "reactstrap";
 import Cart from "./Cart";
+import Chat from "./Chat";
 import PopupModal from "./PopupModal";
 
 const OrdersTable = () => {
@@ -422,11 +423,8 @@ const OrdersTable = () => {
                                   <div className="row mb-2">
                                     <div className="col">
                                       <div
-                                        className="d-flex align-items-center justify-content-start rounded px-0 p-2"
-                                        style={{
-                                          boxShadow:
-                                            "0 0.75rem 1.5rem rgb(18 38 63 / 10%)",
-                                        }}
+                                        className="d-flex align-items-center justify-content-start rounded px-0 p-2 shadow bg-white"
+                                        
                                       >
                                         <div
                                           style={{
@@ -470,11 +468,7 @@ const OrdersTable = () => {
                                     </div>
                                     <div className="col">
                                       <div
-                                        className="d-flex align-items-center justify-content-start rounded px-0 p-2"
-                                        style={{
-                                          boxShadow:
-                                            "0 0.75rem 1.5rem rgb(18 38 63 / 10%)",
-                                        }}
+                                        className="d-flex align-items-center justify-content-start rounded px-0 p-2 shadow bg-white"
                                       >
                                         <div
                                           style={{
@@ -512,14 +506,8 @@ const OrdersTable = () => {
                                       <Cart />
                                     </div>
                                     <div className="col-lg-7">
-                                      <div
-                                        className="p-3 rounded"
-                                        style={{
-                                          boxShadow:
-                                            "0 0.75rem 1.5rem rgb(18 38 63 / 10%)",
-                                        }}
-                                      >
-                                        <div className="row mb-1">
+                                      <div className="p-3 rounded shadow bg-white">
+                                        <div className="row mb-1 align-items-center">
                                           <div className="col-lg-3">
                                             <img
                                               src="data:image/png;base64,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"
@@ -575,8 +563,9 @@ const OrdersTable = () => {
                                 </div>
                                 <div className="col-4">
                                   <h5 className="mb-2">Chat With Executive</h5>
-                                  <div className="card chat-box border-primary">
-                                    <div className="card-body border border-primary rounded px-2 py-0 pt-4 h-20">
+                                  <Chat/>
+                                  {/* <div className="card chat-box shadow bg-white">
+                                    <div className="card-body rounded px-2 py-0 pt-4 h-20">
                                       <div className="chat-conversation">
                                         <ul className="list-unstyled mb-0">
                                           <li className="">
@@ -925,7 +914,7 @@ const OrdersTable = () => {
                               </a>
                             </li>
                           </ul>
-                        </div> */}
+                        </div> 
                                             </div>
                                           </div>
                                           <div className="col-auto col">
@@ -939,7 +928,7 @@ const OrdersTable = () => {
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  </div> */}
                                 </div>
                               </div>
                             </div>
