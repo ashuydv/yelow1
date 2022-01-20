@@ -3,11 +3,72 @@ import Popup from "reactjs-popup";
 import { Button } from "reactstrap";
 import Cart from "./Cart";
 import Chat from "./Chat";
-import PopupModal from "./PopupModal";
 
 const OrdersTable = () => {
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
+  const [process, setProcess] = useState("Processing");
+  const [option, setOption] = useState({
+    isOption1: false,
+    isOption2: false,
+    isOption3: false,
+    isOption4: false,
+    isOption5: false,
+    isOption6: false,
+  });
+
+  const santa = (e) => {
+    if (e.target.value === "1") {
+      setOption((option) => {
+        return {
+          ...option,
+          isOption1: !option.isOption1,
+        };
+      });
+    } else if (e.target.value === "2") {
+      setOption((option) => {
+        return {
+          ...option,
+          isOption2: !option.isOption2,
+        };
+      });
+    } else if (e.target.value === "3") {
+      setOption((option) => {
+        return {
+          ...option,
+          isOption3: !option.isOption3,
+        };
+      });
+    } else if (e.target.value === "4") {
+      setOption((option) => {
+        return {
+          ...option,
+          isOption4: !option.isOption4,
+        };
+      });
+    } else if (e.target.value === "5") {
+      setOption((option) => {
+        return {
+          ...option,
+          isOption5: !option.isOption5,
+        };
+      });
+    } else if (e.target.value === "6") {
+      setOption((option) => {
+        return {
+          ...option,
+          isOption6: !option.isOption6,
+        };
+      });
+    }
+    //option: {{isOption2:true}}
+
+    /* 
+  setOption(...option, {
+      "isOption"+e.target.value: true
+    })
+  */
+  };
 
   return (
     <div>
@@ -160,13 +221,16 @@ const OrdersTable = () => {
                               <div className="row">
                                 <div className="col-8">
                                   <h5 className="mb-4">Order Details</h5>
-                                  <div className="row mb-3">
+                                  <div className="row mb-3 steps">
                                     <div className="col">
                                       <div className="d-flex align-items-center justify-content-center flex-column">
                                         <div
-                                          className="rounded-circle bg-primary"
+                                          className={`${
+                                            option.isOption1
+                                              ? "option-1 rounded-circle "
+                                              : "rounded-circle bg-dark"
+                                          }`}
                                           style={{
-                                            background: "red",
                                             color: "white",
                                             padding: "1rem",
                                             width: "60px",
@@ -192,11 +256,10 @@ const OrdersTable = () => {
                                           </span>
                                         </div>
                                         <span
-                                          className="bg-primary"
+                                          className="bg-primary stepCircle"
                                           style={{
                                             width: "60px",
                                             height: "2px",
-                                            background: "red",
                                             position: "absolute",
                                             top: "30%",
                                             left: "98%",
@@ -204,15 +267,20 @@ const OrdersTable = () => {
                                             zIndex: "0",
                                           }}
                                         ></span>
-                                        <p className="my-2">Processing</p>
+                                        <p className="my-2" id="stepsValue">
+                                          {process}
+                                        </p>
                                       </div>
                                     </div>
                                     <div className="col">
                                       <div className="d-flex align-items-center justify-content-center flex-column">
                                         <div
-                                          className="rounded-circle bg-primary"
+                                          className={`${
+                                            option.isOption2
+                                              ? "option-2 rounded-circle "
+                                              : "rounded-circle bg-dark"
+                                          }`}
                                           style={{
-                                            background: "red",
                                             color: "white",
                                             padding: "1rem",
                                             width: "60px",
@@ -238,11 +306,10 @@ const OrdersTable = () => {
                                           </span>
                                         </div>
                                         <span
-                                          className="bg-primary"
+                                          className="bg-primary stepCircle"
                                           style={{
                                             width: "60px",
                                             height: "2px",
-                                            background: "red",
                                             position: "absolute",
                                             top: "30%",
                                             left: "98%",
@@ -250,15 +317,18 @@ const OrdersTable = () => {
                                             zIndex: "0",
                                           }}
                                         ></span>
-                                        <p className="my-2">Processing</p>
+                                        <p className="my-2">Placed</p>
                                       </div>
                                     </div>
                                     <div className="col">
                                       <div className="d-flex align-items-center justify-content-center flex-column">
                                         <div
-                                          className="rounded-circle bg-primary"
+                                          className={`${
+                                            option.isOption3
+                                              ? "option-3 rounded-circle "
+                                              : "rounded-circle bg-dark"
+                                          }`}
                                           style={{
-                                            background: "red",
                                             color: "white",
                                             padding: "1rem",
                                             width: "60px",
@@ -284,11 +354,10 @@ const OrdersTable = () => {
                                           </span>
                                         </div>
                                         <span
-                                          className="bg-primary"
+                                          className="bg-primary stepCircle"
                                           style={{
                                             width: "60px",
                                             height: "2px",
-                                            background: "red",
                                             position: "absolute",
                                             top: "30%",
                                             left: "98%",
@@ -296,13 +365,17 @@ const OrdersTable = () => {
                                             zIndex: "0",
                                           }}
                                         ></span>
-                                        <p className="my-2">Processing</p>
+                                        <p className="my-2">In Transit</p>
                                       </div>
                                     </div>
                                     <div className="col">
                                       <div className="d-flex align-items-center justify-content-center flex-column">
                                         <div
-                                          className="rounded-circle bg-primary"
+                                          className={`${
+                                            option.isOption4
+                                              ? "option-4 rounded-circle "
+                                              : "rounded-circle bg-dark"
+                                          }`}
                                           style={{
                                             color: "white",
                                             padding: "1rem",
@@ -329,25 +402,28 @@ const OrdersTable = () => {
                                           </span>
                                         </div>
                                         <span
+                                          className="bg-primary stepCircle"
                                           style={{
                                             width: "60px",
                                             height: "2px",
-                                            background: "gray",
                                             position: "absolute",
                                             top: "30%",
                                             left: "98%",
                                             transform: "translate(-50%, -50%)",
                                           }}
                                         ></span>
-                                        <p className="my-2">Processing</p>
+                                        <p className="my-2">Cancelled</p>
                                       </div>
                                     </div>
                                     <div className="col">
                                       <div className="d-flex align-items-center justify-content-center flex-column">
                                         <div
-                                          className="rounded-circle"
+                                          className={`${
+                                            option.isOption5
+                                              ? "option-5 rounded-circle "
+                                              : "rounded-circle bg-dark"
+                                          }`}
                                           style={{
-                                            background: "gray",
                                             color: "white",
                                             padding: "1rem",
                                             width: "60px",
@@ -373,25 +449,28 @@ const OrdersTable = () => {
                                           </span>
                                         </div>
                                         <span
+                                          className="bg-primary stepCircle"
                                           style={{
                                             width: "60px",
                                             height: "2px",
-                                            background: "gray",
                                             position: "absolute",
                                             top: "30%",
                                             left: "98%",
                                             transform: "translate(-50%, -50%)",
                                           }}
                                         ></span>
-                                        <p className="my-2">Processing</p>
+                                        <p className="my-2">Refunded</p>
                                       </div>
                                     </div>
                                     <div className="col">
                                       <div className="d-flex align-items-center justify-content-center flex-column">
                                         <div
-                                          className="rounded-circle"
+                                          className={`${
+                                            option.isOption6
+                                              ? "option-6 rounded-circle "
+                                              : "rounded-circle bg-dark"
+                                          }`}
                                           style={{
-                                            background: "gray",
                                             color: "white",
                                             padding: "1rem",
                                             width: "60px",
@@ -416,16 +495,13 @@ const OrdersTable = () => {
                                             6
                                           </span>
                                         </div>
-                                        <p className="my-2">Processing</p>
+                                        <p className="my-2">Delivered</p>
                                       </div>
                                     </div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col">
-                                      <div
-                                        className="d-flex align-items-center justify-content-start rounded px-0 p-2 shadow bg-white"
-                                        
-                                      >
+                                      <div className="d-flex align-items-center justify-content-start rounded px-0 p-2 shadow bg-white">
                                         <div
                                           style={{
                                             width: "100px",
@@ -467,9 +543,7 @@ const OrdersTable = () => {
                                       </div>
                                     </div>
                                     <div className="col">
-                                      <div
-                                        className="d-flex align-items-center justify-content-start rounded px-0 p-2 shadow bg-white"
-                                      >
+                                      <div className="d-flex align-items-center justify-content-start rounded px-0 p-2 shadow bg-white">
                                         <div
                                           style={{
                                             width: "100px",
@@ -478,7 +552,7 @@ const OrdersTable = () => {
                                         >
                                           <img
                                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2iD6awG7ugwALMWGiwNVjjIPGu58gfRKhEg&usqp=CAU"
-                                            className="img-fluid rounded-circle mx-1"
+                                            className="img-fluid rounded-circle bg-dark mx-1"
                                             alt=""
                                           />
                                         </div>
@@ -519,8 +593,50 @@ const OrdersTable = () => {
                                             <select
                                               class="form-select"
                                               aria-label="Default select example"
+                                              
+                                              onChange={(e) => santa(e)}
                                             >
-                                              <option selected >
+                                              <option value="1">
+                                                Processing
+                                              </option>
+                                              <option value="2">
+                                                Placed
+                                              </option>
+                                              <option value="3">
+                                                Intransit
+                                              </option>
+                                              <option value="4">
+                                                Cancelled
+                                              </option>
+                                              <option value="5">
+                                                Refunded
+                                              </option>
+                                              <option value="6">
+                                                Delivered
+                                              </option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="col-lg-12">
+                                            <select
+                                              class="form-select"
+                                              aria-label="Default select example"
+                                            >
+                                              <option selected>
+                                                Open this select menu
+                                              </option>
+                                              <option value="1">One</option>
+                                              <option value="2">Two</option>
+                                              <option value="3">Three</option>
+                                            </select>
+                                          </div>
+                                          <div className="col-lg-12">
+                                            <select
+                                              class="form-select"
+                                              aria-label="Default select example"
+                                            >
+                                              <option selected>
                                                 Open this select menu
                                               </option>
                                               <option value="1">One</option>
@@ -529,41 +645,13 @@ const OrdersTable = () => {
                                             </select>
                                           </div>
                                         </div>
-                                        <div className="row">
-                                          <div className="col-lg-12">
-                                          <select
-                                            class="form-select"
-                                            aria-label="Default select example"
-                                          >
-                                            <option selected>
-                                              Open this select menu
-                                            </option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                          </select>
-                                          </div>
-                                          <div className="col-lg-12">
-                                          <select
-                                            class="form-select"
-                                            aria-label="Default select example"
-                                          >
-                                            <option selected>
-                                              Open this select menu
-                                            </option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                          </select>
-                                          </div>
-                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                                 <div className="col-4">
                                   <h5 className="mb-2">Chat With Executive</h5>
-                                  <Chat/>
+                                  <Chat />
                                   {/* <div className="card chat-box shadow bg-white">
                                     <div className="card-body rounded px-2 py-0 pt-4 h-20">
                                       <div className="chat-conversation">

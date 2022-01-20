@@ -1,7 +1,15 @@
 import React from "react";
+import { useState } from "react";
+import { FormGroup, Input } from "reactstrap";
 import "../style.css";
 
 const PopupModal = () => {
+  const [value, setValue] = useState("");
+
+  const handleSelect = (e) => {
+    console.log(e);
+  };
+
   return (
     <div id="modal" className="modal-content">
       <div className="modal-header">
@@ -19,7 +27,7 @@ const PopupModal = () => {
                     className="img-fluid rounded-circle border border-success"
                     alt=""
                   />
-                  <p className="my-2">Processing</p>
+                  <p className="my-2">{value}</p>
                 </div>
               </div>
               <div className="col">
@@ -85,24 +93,19 @@ const PopupModal = () => {
                     <p className="mb-1">Nescafe Gold</p>
                     <p className="mb-1">Lorem, ipsum dolor...</p>
                     <a className="mb-1" href="#">
-                      Nescafe                    </a>
+                      Nescafe{" "}
+                    </a>
                     <p className="mb-1">Price: 25$</p>
                   </div>
                 </div>
               </div>
               <div className="col">
                 <div className="d-flex align-items-center justify-content-start border border-success px-0 p-2">
-                  <img
-                    src=""
-                    className="img-fluid mx-2"
-                    alt=""
-                  />
+                  <img src="" className="img-fluid mx-2" alt="" />
                   <div>
                     <p className="mb-1">Nescafe Gold</p>
                     <p className="mb-1">Lorem, ipsum dolor...</p>
-                    <p className="mb-1">
-                      https://nescafe.com
-                    </p>
+                    <p className="mb-1">https://nescafe.com</p>
                     <p className="mb-1">Price: 25$</p>
                   </div>
                 </div>
@@ -127,11 +130,25 @@ const PopupModal = () => {
                     <p className="mb-0">
                       <div className="form-group">
                         <label for=""></label>
-                        <select className="form-control" name="" id="">
+                        <select
+                          className="form-control"
+                          name=""
+                          id=""
+                          onSelect={handleSelect}
+                        >
                           <option></option>
                           <option></option>
                           <option></option>
                         </select>
+                        <FormGroup>
+                          <Input type="select" name="select" id="exampleSelect">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </Input>
+                        </FormGroup>
                       </div>
                     </p>
                   </div>
@@ -156,7 +173,9 @@ const PopupModal = () => {
                     <li className="">
                       <div className="conversation-list">
                         <div className="ctext-wrap">
-                          <div className="conversation-name">Steven Franklin</div>
+                          <div className="conversation-name">
+                            Steven Franklin
+                          </div>
                           <p>Hello!</p>
                           <p className="chat-time mb-0">
                             <i className="bx bx-time-five align-middle me-1"></i>{" "}
@@ -229,7 +248,9 @@ const PopupModal = () => {
                     <li className="">
                       <div className="conversation-list">
                         <div className="ctext-wrap">
-                          <div className="conversation-name">Steven Franklin</div>
+                          <div className="conversation-name">
+                            Steven Franklin
+                          </div>
                           <p>Hello!</p>
                           <p className="chat-time mb-0">
                             <i className="bx bx-time-five align-middle me-1"></i>{" "}
@@ -302,7 +323,9 @@ const PopupModal = () => {
                     <li className="">
                       <div className="conversation-list">
                         <div className="ctext-wrap">
-                          <div className="conversation-name">Steven Franklin</div>
+                          <div className="conversation-name">
+                            Steven Franklin
+                          </div>
                           <p>Hello!</p>
                           <p className="chat-time mb-0">
                             <i className="bx bx-time-five align-middle me-1"></i>{" "}
@@ -375,7 +398,9 @@ const PopupModal = () => {
                     <li className="">
                       <div className="conversation-list">
                         <div className="ctext-wrap">
-                          <div className="conversation-name">Steven Franklin</div>
+                          <div className="conversation-name">
+                            Steven Franklin
+                          </div>
                           <p>Hello!</p>
                           <p className="chat-time mb-0">
                             <i className="bx bx-time-five align-middle me-1"></i>{" "}
@@ -455,7 +480,6 @@ const PopupModal = () => {
                           type="text"
                           className="form-control chat-input"
                           placeholder="Enter Message..."
-
                         />
                         {/* <div className="chat-input-links">
                           <ul className="list-inline mb-0">
