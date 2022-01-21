@@ -116,9 +116,22 @@
 .option-1,
 .option-2,
 .option-3,
-.option-4,
 .option-5,
+.option-4,
 .option-6 {
     background: purple !important;
-    color: #f1f1f1 !important;
+    color: #fff !important;
+    transition: all .3s ease;
+}
+
+.option-4 {
+    background: #34c38f !important;
+}
+
+.option-5 {
+    background: blue !important;
+}
+
+.option-6 {
+    background: #f46a6a !important;
 }
