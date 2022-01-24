@@ -101,7 +101,7 @@ const SidebarContent = props => {
           <ul className="metismenu list-unstyled" id="side-menu">
             {/* <li className="menu-title">Menu </li> */}
             <li>
-              <Link to="/" className="text-white">
+              <Link className="text-white">
                 <i className="bx bx-home-circle text-white"></i>
                 <span className="badge rounded-pill bg-info float-end">
                   04
@@ -126,7 +126,7 @@ const SidebarContent = props => {
             </li>
 
             <li>
-              <Link to="/" className="text-white">
+              <Link to="/orders" className="text-white">
                 <i className="bx bx-home-circle text-white"></i>
                 <span>Orders</span>
               </Link>

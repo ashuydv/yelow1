@@ -135,3 +135,11 @@
 .option-6 {
     background: #f46a6a !important;
 }
+
+.login {
+    position: absolute;
+    width: 74.5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

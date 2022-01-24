@@ -6,12 +6,13 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-
 //i18n
 import { withTranslation } from "react-i18next";
 // Redux
 import { connect } from "react-redux";
 import { BrowserRouter as withRouter, Link } from "react-router-dom";
+import Logout from "./Logout";
+import Popup from "reactjs-popup";
 
 // users
 
@@ -22,6 +23,7 @@ const ProfileMenu = (props) => {
   const [username, setusername] = useState("Admin");
 
   useEffect(() => {
+ /*
     if (localStorage.getItem("authUser")) {
       if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
         const obj = JSON.parse(localStorage.getItem("authUser"));
@@ -34,6 +36,9 @@ const ProfileMenu = (props) => {
         setusername(obj.username);
       }
     }
+    */
+   localStorage.setItem('role', 'Admin')
+   console.log(localStorage.getItem("role"));
   }, [props.success]);
 
   return (
@@ -57,9 +62,95 @@ const ProfileMenu = (props) => {
           <i className="mdi mdi-chevron-down d-none d-xl-inline-block" />
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
-          <DropdownItem tag="a" href="/profile">
+          <DropdownItem>
             <i className="bx bx-user font-size-16 align-middle me-1" />
             Profile
+          </DropdownItem>
+          <DropdownItem>
+            <Popup
+              trigger={
+                <button className="bg-white border-0 outline-0 p-0" >
+                  <i className="bx bx-user font-size-16 align-middle me-1" />
+                  Add User
+                </button>
+              }
+              modal
+            >
+              <div className="card" style={{width: "400px"}}>
+                <div className="card-body">
+                  <div className="card-title">Add User</div>
+                  <div className="p-2">
+                  <form action="#">
+                    <div class="mb-3">
+                      <label for="name" class="form-label form-label">
+                        Name
+                      </label>
+                      <input
+                        name="name"
+                        type="text"
+                        class="form-control"
+                        value="John Doe"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label form-label">
+                        Email
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        class="form-control"
+                        value="johndoe@gmail.com"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone" class="form-label form-label">
+                        Phone no
+                      </label>
+                      <input
+                        name="phone"
+                        type="number"
+                        class="form-control"
+                        value="1234567890"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label form-label">
+                        Password
+                      </label>
+                      <input
+                        name="password"
+                        type="password"
+                        class="form-control"
+                        value="johndoe@gmail.com"
+                      />
+                    </div>
+                    <div className="mb-3">
+                    <label for="roles" class="form-label form-label">
+                        Roles
+                      </label>
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                      >
+                        <option selected>Open this select menu</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Executive">Executive</option>
+                      </select>
+                    </div>
+                    <div class="mt-3 d-grid">
+                      <Link
+                        class="btn btn-success btn-block"
+                        type="submit"
+                      >
+                        Add User
+                      </Link>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </Popup>
           </DropdownItem>
           {/* <DropdownItem tag="a" href="/crypto-wallet">
             <i className="bx bx-wallet font-size-16 align-middle me-1" />
@@ -75,7 +166,7 @@ const ProfileMenu = (props) => {
             Lock screen
           </DropdownItem> */}
           <div className="dropdown-divider" />
-          <Link to="/logout" className="dropdown-item">
+          <Link to="/login" className="dropdown-item">
             <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger" />
             <span>Logout</span>
           </Link>
