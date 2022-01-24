@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownToggle, DropdownMenu, Row, Col } from "reactstrap";
 import SimpleBar from "simplebar-react";
+import Popup from "reactjs-popup";
 
 const NotificationDropdown = (props) => {
   const [menu, setMenu] = useState(false);
@@ -41,87 +42,46 @@ const NotificationDropdown = (props) => {
             </div>
 
             <SimpleBar style={{ height: "230px" }}>
-              <Link to="" className="text-reset notification-item">
-                <div className="d-flex">
-                  <div className="avatar-xs me-3">
-                    <span className="avatar-title bg-primary rounded-circle font-size-16">
-                      <i className="bx bx-cart" />
-                    </span>
-                  </div>
-                  <div className="flex-grow-1">
-                    <h6 className="mt-0 mb-1">Your order is placed</h6>
-                    <div className="font-size-12 text-muted">
-                      <p className="mb-1">
-                        If several languages coalesce the grammar
-                      </p>
-                      <p className="mb-0">
-                        <i className="mdi mdi-clock-outline" /> 3 min ago{" "}
-                      </p>
+              {/* <Link>
+              </Link> */}
+              <Popup
+                  className="text-reset notification-item"
+                  style={{cursor: "pointer"}}
+                  trigger={
+                    <div className="d-flex px-3">
+                      <div className="avatar-xs me-3">
+                        <span className="avatar-title bg-primary rounded-circle font-size-16">
+                          <i className="bx bx-cart" />
+                        </span>
+                      </div>
+                      <div className="flex-grow-1">
+                        <h6 className="mt-2 mb-1">
+                          Janta wants to delete this order{" "}
+                        </h6>
+                      </div>
+                    </div>
+                  }
+                  modal
+                >
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-title">
+                        Order Cancellation
+                      </div>
+                      <p>Janta wants to delete the order named as Nescafe Gold, with order id 23231424, </p>
+                      <div className="card-footer">
+                      <div className="d-flex align-items-center justify-content-center">
+                        <button className="btn btn-success mx-2">
+                          Accept
+                        </button>
+                        <button className="btn btn-danger" >
+                          Decline
+                        </button>
+                      </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-              <Link to="" className="text-reset notification-item">
-                <div className="d-flex">
-                  <img
-                    src="https://dummyimage.com/20"
-                    className="me-3 rounded-circle avatar-xs"
-                    alt="user-pic"
-                  />
-                  <div className="flex-grow-1">
-                    <h6 className="mt-0 mb-1">James Lemire</h6>
-                    <div className="font-size-12 text-muted">
-                      <p className="mb-1">
-                        It will seem like simplified English
-                      </p>
-                      <p className="mb-0">
-                        <i className="mdi mdi-clock-outline" />1 hours ago{" "}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <Link to="" className="text-reset notification-item">
-                <div className="d-flex">
-                  <div className="avatar-xs me-3">
-                    <span className="avatar-title bg-success rounded-circle font-size-16">
-                      <i className="bx bx-badge-check" />
-                    </span>
-                  </div>
-                  <div className="flex-grow-1">
-                    <h6 className="mt-0 mb-1">Your item is shipped</h6>
-                    <div className="font-size-12 text-muted">
-                      <p className="mb-1">
-                        If several languages coalesce the grammar
-                      </p>
-                      <p className="mb-0">
-                        <i className="mdi mdi-clock-outline" /> 3 min ago
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-
-              <Link to="" className="text-reset notification-item">
-                <div className="d-flex">
-                  <img
-                    src="https://dummyimage.com/20"
-                    className="me-3 rounded-circle avatar-xs"
-                    alt="user-pic"
-                  />
-                  <div className="flex-grow-1">
-                    <h6 className="mt-0 mb-1">Salena Layfield</h6>
-                    <div className="font-size-12 text-muted">
-                      <p className="mb-1">
-                        As a skeptical Cambridge friend of mine occidental
-                      </p>
-                      <p className="mb-0">
-                        <i className="mdi mdi-clock-outline" />1 hours ago
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+                </Popup>
             </SimpleBar>
             <div className="p-2 border-top d-grid">
               <Link
