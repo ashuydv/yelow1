@@ -50,10 +50,10 @@ const Login = () => {
   const routeChange = () => {
     if(userdata.type === 'admin') {
       history.push('/adminDashboard')
-    } else if(userdata.type === 'executive') {
+    }
+
+    if(userdata.type === 'executive') {
       history.push('/executeDashboard')
-        } else {
-      alert('Invalid User')
     }
   };
 

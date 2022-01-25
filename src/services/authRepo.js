@@ -10,7 +10,6 @@ class AuthRep {
                     password: data?.password,
                 }
             );
-            localStorage.setItem("fooo", JSON.stringify(response.data))
             return response?.data
         } catch (error) {
             console.log(error)
