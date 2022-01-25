@@ -37,8 +37,6 @@ const ProfileMenu = (props) => {
       }
     }
     */
-   localStorage.setItem('role', 'Admin')
-   console.log(localStorage.getItem("role"));
   }, [props.success]);
 
   return (

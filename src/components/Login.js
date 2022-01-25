@@ -1,35 +1,61 @@
 import axios from "axios";
+import e from "cors";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory, withRouter } from "react-router-dom";
+import AuthRep from "../services/authRepo";
 
 const Login = () => {
-
-  const [phone, setPhone] = useState("")
-  const [password, setPassword] = useState("")
-  const [role, setRole] = useState("")
+  const [formdata, setformdata] = useState({
+    phone_number: "",
+    password: "",
+  });
+  
+  const [userdata, setUserData] = useState({})  
+  const [token, setToken] = useState("")
 
   const [isAdmin, setIsAdmin] = useState(false)
 
   const handleChange = (e) => {
-    if(e.target.value === "Admin") {
-      setIsAdmin(true)
-    } else {
-      setIsAdmin(false)
-    }
-    setRole(e.target.value)
-  }
+    setformdata((pre) => {
+      return {
+        ...pre,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
 
-  const baseUrl = 'https://devapi.yelow.club/v1/manpower/yelow/login'
+  const history = useHistory();
+
+  const baseUrl = `https://devapi.yelow.club/v1/manpower/yelow/login`;
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const data = {phone_number: phone, password}
-    console.log(data);
-    let response = await axios.post(
-      `https://devapi.yelow.club/v1/manpower/yelow/login`, data
-    )
-    console.log(response);
+    const data = await AuthRep.login(formdata) 
+    setUserData(data.payload.user)
+    setToken(data.payload.token)
+    console.log(data.payload.user);
+  };
+  
+  const Admin = () => {
+    history.push('/adminDashboard')
   }
+
+  const Executive = () => {
+    history.push('/executeDashboard')
+  }
+
+  localStorage.setItem("userdata", userdata)
+  localStorage.setItem("usertoken", token)
+
+  const routeChange = () => {
+    if(userdata.type === 'admin') {
+      history.push('/adminDashboard')
+    } else if(userdata.type === 'executive') {
+      history.push('/executeDashboard')
+        } else {
+      alert('Invalid User')
+    }
+  };
 
   return (
     <div>
@@ -82,21 +108,31 @@ const Login = () => {
                   </a>
                 </div>
                 <div className="p-2">
-                  <form action="#" className="form-horizontal" onSubmit={handleSubmit}>
+                  <form
+                    action="#"
+                    className="form-horizontal"
+                    onSubmit={handleSubmit}
+                  >
                     <div className="mb-3">
-                      <label htmlFor="phone_number" className="form-label form-label">
+                      <label
+                        htmlFor="phone_number"
+                        className="form-label form-label"
+                      >
                         Phone No.
                       </label>
                       <input
-                        name="phone_number"
+                        name="phone"
                         type="number"
                         className="form-control"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value) }
+                        maxLength="10"
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="mb-3">
-                      <label htmlFor="password" className="form-label form-label">
+                      <label
+                        htmlFor="password"
+                        className="form-label form-label"
+                      >
                         Password
                       </label>
                       <div className="input-group auth-pass-inputgroup">
@@ -104,8 +140,7 @@ const Login = () => {
                           name="password"
                           type="password"
                           className="form-control"
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value) }
+                          onChange={handleChange}
                         />
                         <button
                           className="btn btn-light "
@@ -132,20 +167,28 @@ const Login = () => {
                         className="form-check-input"
                         id="customControlInline"
                       />
-                      <label className="form-check-label" htmlFor="customControlInline">
+                      <label
+                        className="form-check-label"
+                        htmlFor="customControlInline"
+                      >
                         Remember me
                       </label>
                     </div>
                     <div className="mt-3 d-grid">
                       {/* <Link
-                        to={`${isAdmin ? '/adminDashboard' : '/executeDashboard'}`}
+                        to={userdata.type === 'admin' ? '/adminDashboard' : '/executeDashboard'}
                         className="btn btn-primary btn-block"
                         type="submit"
                       >
                         Log In
                       </Link> */}
-                      <button className="btn btn-primary btn-block"
-                         type="submit" >Login</button>
+                      <button
+                        className="btn btn-primary btn-block"
+                        type="submit"
+                        onClick={routeChange}
+                      >
+                        Login
+                      </button>
                     </div>
                     {/* <div className="mt-4 text-center">
                       <h5 className="font-size-14 mb-3">Sign in with</h5>
@@ -163,7 +206,8 @@ const Login = () => {
                     </div> */}
                     <div className="mt-4 text-center">
                       <a className="text-muted" href="/forgot-password">
-                        <i className="mdi mdi-lock me-1"></i> Forgot your password?
+                        <i className="mdi mdi-lock me-1"></i> Forgot your
+                        password?
                       </a>
                     </div>
                   </form>
@@ -185,4 +229,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withRouter(Login);
