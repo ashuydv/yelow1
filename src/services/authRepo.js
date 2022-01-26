@@ -12,7 +12,10 @@ class AuthRep {
           password: data?.password,
         }
       );
-      if (!response.data.payload.status) return null;
+//      if (!response.data.payload.status) return null;
+        console.log('====================================');
+        console.log(response);
+        console.log('====================================');
       localStorage.setItem("token", response.data.payload.token);
       localStorage.setItem("userdata", response.data.payload.user);
       localStorage.setItem(
