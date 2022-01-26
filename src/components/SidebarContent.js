@@ -146,6 +146,27 @@ const SidebarContent = props => {
                 </li>
               </ul> */}
             </li>
+            <li>
+              <Link to="/users" className="text-white">
+                <i className="bx bx-home-circle text-white"></i>
+                <span>Users</span>
+              </Link>
+              
+              {/* <ul className="sub-menu" aria-expanded="false">
+                <li>
+                  <Link to="/dashboard">Default</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard-saas">Saas</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard-crypto">Crypto</Link>
+                </li>
+                <li>
+                  <Link to="/blog">Blog</Link>
+                </li>
+              </ul> */}
+            </li>
             {/* <li className="menu-title">Apps</li>
 
             <li>

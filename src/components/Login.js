@@ -1,7 +1,8 @@
 import axios from "axios";
 import e from "cors";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Redirect, useHistory, withRouter } from "react-router-dom";
+import { useUser } from "../Context/UserProvider";
 import AuthRep from "../services/authRepo";
 
 const Login = () => {
@@ -9,11 +10,11 @@ const Login = () => {
     phone_number: "",
     password: "",
   });
-  
-  const [userdata, setUserData] = useState({})  
-  const [token, setToken] = useState("")
 
-  const [isAdmin, setIsAdmin] = useState(false)
+  const setUser = useUser();
+
+  const [userdata, setUserData] = useState({});
+  const [token, setToken] = useState("");
 
   const handleChange = (e) => {
     setformdata((pre) => {
@@ -29,33 +30,38 @@ const Login = () => {
   const baseUrl = `https://devapi.yelow.club/v1/manpower/yelow/login`;
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const data = await AuthRep.login(formdata) 
-    setUserData(data.payload.user)
-    setToken(data.payload.token)
-    console.log(data.payload.user);
+    e.preventDefault();
+    const data = await AuthRep.login(formdata);
+    console.log(data);
+    setUserData(data.payload.user);
+    setToken(data.payload.token);
   };
-  
-  const Admin = () => {
-    history.push('/adminDashboard')
-  }
 
-  const Executive = () => {
-    history.push('/executeDashboard')
-  }
-
-  localStorage.setItem("userdata", userdata)
-  localStorage.setItem("usertoken", token)
+  localStorage.setItem("userdata", userdata);
+  localStorage.setItem("usertoken", token);
 
   const routeChange = () => {
-    if(userdata.type === 'admin') {
-      history.push('/adminDashboard')
+    if (userdata && Object.entries(userdata).length !== 0) {
+      if (userdata.type === "admin") {
+        return history.push("/adminDashboard");
+      } else if(userdata.type === "admin") {
+        return history.push("/executeDashboard");
+      } else {
+        alert('invalid user')
+      }
     }
 
-    if(userdata.type === 'executive') {
-      history.push('/executeDashboard')
-    }
+    // if (userdata.type === "executive") {
+    //   history.push("/executeDashboard");
+    // }
   };
+
+  useEffect(() => {
+    if (userdata && Object.entries(userdata).length !== 0) {
+      console.log(userdata);
+      routeChange();
+    }
+  }, [userdata]);
 
   return (
     <div>

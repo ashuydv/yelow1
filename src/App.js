@@ -19,6 +19,7 @@ import Register from "./components/Register";
 import Sidebar from "./components/Sidebar";
 //import Dashboard from './components/Dashboard.js'
 import "./components/style.css";
+import Users from "./components/Users";
 
 const Main = withRouter(({ location }) => {
   return (
@@ -35,6 +36,7 @@ const Main = withRouter(({ location }) => {
       <Route path="/executeDashboard" exact component={StudentDashboard} />
       <Route path="/adminDashboard" exact component={AdminDashboard} />
       <Route path="/orders" component={Table} />
+      <Route path="/users" component={Users} />
       <Route path="/login" component={Login} />
       <Route path="/logout" component={Logout} />
       <Route path="/register" component={Register} />

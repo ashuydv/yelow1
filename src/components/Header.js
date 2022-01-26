@@ -1,24 +1,24 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
-import NotificationDropdown from './NotificationDropdown'
-import ProfileMenu from './ProfileMenu'
+import NotificationDropdown from "./NotificationDropdown";
+import ProfileMenu from "./ProfileMenu";
 
 // Reactstrap
 import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 
 // Import menuDropdown
-import Yelow from '../assets/Yelow.png'
+import Yelow from "../assets/Yelow.png";
 
 //i18n
 import { withTranslation } from "react-i18next";
 
 // Redux Store
 
-const Header = props => {
+const Header = (props) => {
   const [search, setsearch] = useState(false);
   const [megaMenu, setmegaMenu] = useState(false);
   const [socialDrp, setsocialDrp] = useState(false);
@@ -65,7 +65,6 @@ const Header = props => {
       <header id="page-topbar">
         <div className="navbar-header">
           <div className="d-flex">
-
             <div className="navbar-brand-box d-lg-none d-md-block">
               <Link to="/" className="logo logo-dark">
                 <span className="logo-sm">
@@ -359,7 +358,7 @@ const Header = props => {
 */}
 
             <NotificationDropdown />
-                 
+
             <ProfileMenu />
 
             {/* <div
@@ -389,16 +388,12 @@ Header.propTypes = {
   showRightSidebar: PropTypes.any,
   showRightSidebarAction: PropTypes.func,
   t: PropTypes.any,
-  toggleLeftmenu: PropTypes.func
+  toggleLeftmenu: PropTypes.func,
 };
 
-const mapStatetoProps = state => {
-  const {
-    layoutType,
-    showRightSidebar,
-    leftMenu,
-    leftSideBarType,
-  } = state.Layout;
+const mapStatetoProps = (state) => {
+  const { layoutType, showRightSidebar, leftMenu, leftSideBarType } =
+    state.Layout;
   return { layoutType, showRightSidebar, leftMenu, leftSideBarType };
 };
 
