@@ -25,10 +25,10 @@ const ProfileMenu = (props) => {
   const [username, setusername] = useState("Admin");
   const [users, setUsers] = useState(userList);
 
-  const addUser = user => {
+  const addUser = (user) => {
     user.id = users.length + 1;
-    setUsers([...users, user])
-  }
+    setUsers([...users, user]);
+  };
 
   return (
     <React.Fragment>
@@ -58,18 +58,18 @@ const ProfileMenu = (props) => {
           <DropdownItem>
             <Popup
               trigger={
-                <button className="bg-white border-0 outline-0 p-0" >
+                <button className="bg-white border-0 outline-0 p-0">
                   <i className="bx bx-user font-size-16 align-middle me-1" />
                   Add User
                 </button>
               }
               modal
             >
-                     <AddUserForm addUser={addUser} />
+              <AddUserForm addUser={addUser} />
             </Popup>
           </DropdownItem>
           <DropdownItem>
-            <Modal/>
+            <Modal />
           </DropdownItem>
           <div className="dropdown-divider" />
           <Link to="/login" className="dropdown-item">

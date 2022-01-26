@@ -20,6 +20,7 @@ import Sidebar from "./components/Sidebar";
 //import Dashboard from './components/Dashboard.js'
 import "./components/style.css";
 import Users from "./components/Users";
+import useUsers from "./stores/users";
 
 const Main = withRouter(({ location }) => {
   return (
@@ -30,9 +31,9 @@ const Main = withRouter(({ location }) => {
       {location.pathname !== "/login" &&
         location.pathname !== "/register" &&
         location.pathname !== "/logout" && <Sidebar />}
-        <Route path='/' exact>
-          <Redirect to='/login'/>
-        </Route>
+      <Route path="/" exact>
+        <Redirect to="/login" />
+      </Route>
       <Route path="/executeDashboard" exact component={StudentDashboard} />
       <Route path="/adminDashboard" exact component={AdminDashboard} />
       <Route path="/orders" component={Table} />
@@ -46,7 +47,7 @@ const Main = withRouter(({ location }) => {
     </div>
   );
 });
-
+useUsers.getState().getUsers();
 function App() {
   return (
     <div>

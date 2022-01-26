@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import AddUserForm from "./AddUserForm";
 import userList from "./userList";
+import useUsers from "../stores/users";
 import UserTable from "./UserTable";
 
 const Users = () => {
-  const [users, setUsers] = useState(userList);
-  
-  const addUser = user => {
-    user.id = users.length + 1;
-    setUsers([...users, user])
-  }
-
+  const users = useUsers(state => state.users);
   return (
     <div>
       <div className="main-content">
@@ -20,7 +15,7 @@ const Users = () => {
             <UserTable users={users} />
             </div>
             <div className="col-4">
-            <AddUserForm addUser={addUser} />
+            <AddUserForm />
             </div>
           </div>
         </div>
