@@ -1,5 +1,5 @@
 import createStore from "zustand";
-import AuthRep from "../services/authRepo";
+import AuthRep from "../services/authService";
 
 const useAuth = createStore((set) => ({
   auth: {

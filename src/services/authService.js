@@ -12,10 +12,7 @@ class AuthRep {
           password: data?.password,
         }
       );
-//      if (!response.data.payload.status) return null;
-        console.log('====================================');
-        console.log(response);
-        console.log('====================================');
+      // if (!response.data.payload.status) return null;
       localStorage.setItem("token", response.data.payload.token);
       localStorage.setItem("userdata", response.data.payload.user);
       localStorage.setItem(
@@ -42,11 +39,12 @@ class AuthRep {
         data: data,
       });
       console.log(JSON.stringify(response.data));
-      if(!response.data.payload.status) return { message : response.data.payload.message };
+      if (!response.data.payload.status)
+        return { message: response.data.payload.message };
       return response?.data;
     } catch (error) {
       console.log(error);
-      return { message : error.message };
+      return { message: error.message };
     }
   }
 
@@ -63,7 +61,8 @@ class AuthRep {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      if(!response.data.payload.status) return { message : response.data.payload.message };
+      if (!response.data.payload.status)
+        return { message: response.data.payload.message };
       return response?.data;
     } catch (error) {
       console.log(error);
@@ -83,7 +82,8 @@ class AuthRep {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      if(!response.data.payload.status) return { message : response.data.payload.message };
+      if (!response.data.payload.status)
+        return { message: response.data.payload.message };
 
       return response?.data;
     } catch (error) {
@@ -111,28 +111,28 @@ class AuthRep {
           password: data?.password,
         },
       });
-      if(!response.data.payload.status) return { message : response.data.payload.message };
+      if (!response.data.payload.status)
+        return { message: response.data.payload.message };
       return response?.data;
     } catch (error) {
       console.log(error);
     }
   }
 
-  static async getUserList(data={}) {
+  static async getUserList(data = {}) {
     try {
       let response = await axios({
         method: "get",
         url: `${config.host}/${config.api_version}/manpower/yelow/user/list`,
-        params: {
-          type: data?.type,
-        },
+        params: data,
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
       console.log(response);
-      if(!response?.data?.payload) return { message : response.data.payload.message };
+      if (!response?.data?.payload)
+        return { message: response.data.payload.message };
       return response?.data;
     } catch (error) {
       console.log(error);
