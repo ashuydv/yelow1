@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Popup from "reactjs-popup";
 import { Button } from "reactstrap";
 import Cart from "./Cart";
@@ -6,8 +6,44 @@ import Chat from "./Chat";
 import OrderDetails from "./OrderDetails";
 import CustomerDetails from "./CustomerDetails";
 import ProductSelect from "./ProductSelect";
-
+import { useTable } from "react-table";
+// import { useInput } from "../hooks/useInput";
+import OrdersService from "../../services/ordersService";
+import useOrders from "../../stores/orders";
 const OrdersTable = () => {
+
+  const columns = useMemo(() => [
+    {
+      Header: "Order Id",
+      accessor: "uuid",
+    },
+    {
+      Header: "Billing Name",
+      accessor: "billing_name",
+    },
+    {
+      Header: "Date",
+      accessor: "created_on",
+    },
+    {
+      Header: "Status",
+      accessor: "status",
+    },
+    {
+      Header: "Total",
+      accessor: "total_amount",
+    },
+    {
+      Header: "Action",
+    },
+  ], []);
+
+  const orders = useOrders(orders => orders.orders);
+  const getOrders = useOrders(orders => orders.getOrders);
+
+  useMemo(() => {
+    useOrders.getState().getOrders();
+  })
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
   const [process, setProcess] = useState("Processing");
@@ -19,6 +55,7 @@ const OrdersTable = () => {
     isOption5: false,
     isOption6: false,
   });
+
 
   const santa = (e) => {
     if (e.target.value === "1") {
@@ -86,6 +123,7 @@ const OrdersTable = () => {
 
   return (
     <div>
+      {/* {isLoading ? console.log("Loading Orders") : null} */}
       <div>
         <div className="card">
           <div className="card-body">
@@ -132,6 +170,7 @@ const OrdersTable = () => {
                       >
                         <input type="checkbox" className="selection-input-4" />
                       </th>
+
                       <th
                         tabIndex="0"
                         aria-label="Order ID sort desc"
@@ -187,7 +226,10 @@ const OrdersTable = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                  </tbody>
+                    {/* {getOrders.map((order, index) => (
+
+                    <tr key={index}>
                       <td className="selection-cell">
                         <input type="checkbox" className="selection-input-4" />
                       </td>
@@ -577,371 +619,6 @@ const OrdersTable = () => {
                                 <div className="col-4">
                                   <h5 className="mb-2">Chat With Executive</h5>
                                   <Chat />
-                                  {/* <div className="card chat-box shadow bg-white">
-                                    <div className="card-body rounded px-2 py-0 pt-4 h-20">
-                                      <div className="chat-conversation">
-                                        <ul className="list-unstyled mb-0">
-                                          <li className="">
-                                            <div className="conversation-list">
-                                              <div className="ctext-wrap">
-                                                <div className="conversation-name">
-                                                  Steven Franklin
-                                                </div>
-                                                <p>Hello!</p>
-                                                <p className="chat-time mb-0">
-                                                  <i className="bx bx-time-five align-middle me-1"></i>{" "}
-                                                  10:37
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li className="right">
-                                            <div className="conversation-list">
-                                              <div className="dropdown">
-                                                <a
-                                                  href="#"
-                                                  aria-haspopup="true"
-                                                  className="dropdown-toggle"
-                                                  aria-expanded="false"
-                                                >
-                                                  <i className="bx bx-dots-vertical-rounded"></i>
-                                                </a>
-                                                <div
-                                                  tabIndex="-1"
-                                                  role="menu"
-                                                  aria-hidden="true"
-                                                  className="dropdown-menu-end dropdown-menu"
-                                                >
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Copy
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Save
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Forward
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Delete
-                                                  </a>
-                                                </div>
-                                              </div>
-                                              <div className="ctext-wrap">
-                                                <div className="conversation-name">
-                                                  Henry Wells
-                                                </div>
-                                                <p>Wow that's great</p>
-                                                <p className="chat-time mb-0">
-                                                  <i className="bx bx-time-five align-middle me-1"></i>{" "}
-                                                  10:37
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li className="">
-                                            <div className="conversation-list">
-                                              <div className="ctext-wrap">
-                                                <div className="conversation-name">
-                                                  Steven Franklin
-                                                </div>
-                                                <p>Hello!</p>
-                                                <p className="chat-time mb-0">
-                                                  <i className="bx bx-time-five align-middle me-1"></i>{" "}
-                                                  10:37
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li className="right">
-                                            <div className="conversation-list">
-                                              <div className="dropdown">
-                                                <a
-                                                  href="#"
-                                                  aria-haspopup="true"
-                                                  className="dropdown-toggle"
-                                                  aria-expanded="false"
-                                                >
-                                                  <i className="bx bx-dots-vertical-rounded"></i>
-                                                </a>
-                                                <div
-                                                  tabIndex="-1"
-                                                  role="menu"
-                                                  aria-hidden="true"
-                                                  className="dropdown-menu-end dropdown-menu"
-                                                >
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Copy
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Save
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Forward
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Delete
-                                                  </a>
-                                                </div>
-                                              </div>
-                                              <div className="ctext-wrap">
-                                                <div className="conversation-name">
-                                                  Henry Wells
-                                                </div>
-                                                <p>Wow that's great</p>
-                                                <p className="chat-time mb-0">
-                                                  <i className="bx bx-time-five align-middle me-1"></i>{" "}
-                                                  10:37
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li className="">
-                                            <div className="conversation-list">
-                                              <div className="ctext-wrap">
-                                                <div className="conversation-name">
-                                                  Steven Franklin
-                                                </div>
-                                                <p>Hello!</p>
-                                                <p className="chat-time mb-0">
-                                                  <i className="bx bx-time-five align-middle me-1"></i>{" "}
-                                                  10:37
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li className="right">
-                                            <div className="conversation-list">
-                                              <div className="dropdown">
-                                                <a
-                                                  href="#"
-                                                  aria-haspopup="true"
-                                                  className="dropdown-toggle"
-                                                  aria-expanded="false"
-                                                >
-                                                  <i className="bx bx-dots-vertical-rounded"></i>
-                                                </a>
-                                                <div
-                                                  tabIndex="-1"
-                                                  role="menu"
-                                                  aria-hidden="true"
-                                                  className="dropdown-menu-end dropdown-menu"
-                                                >
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Copy
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Save
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Forward
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Delete
-                                                  </a>
-                                                </div>
-                                              </div>
-                                              <div className="ctext-wrap">
-                                                <div className="conversation-name">
-                                                  Henry Wells
-                                                </div>
-                                                <p>Wow that's great</p>
-                                                <p className="chat-time mb-0">
-                                                  <i className="bx bx-time-five align-middle me-1"></i>{" "}
-                                                  10:37
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li className="">
-                                            <div className="conversation-list">
-                                              <div className="ctext-wrap">
-                                                <div className="conversation-name">
-                                                  Steven Franklin
-                                                </div>
-                                                <p>Hello!</p>
-                                                <p className="chat-time mb-0">
-                                                  <i className="bx bx-time-five align-middle me-1"></i>{" "}
-                                                  10:37
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li className="right">
-                                            <div className="conversation-list">
-                                              <div className="dropdown">
-                                                <a
-                                                  href="#"
-                                                  aria-haspopup="true"
-                                                  className="dropdown-toggle"
-                                                  aria-expanded="false"
-                                                >
-                                                  <i className="bx bx-dots-vertical-rounded"></i>
-                                                </a>
-                                                <div
-                                                  tabIndex="-1"
-                                                  role="menu"
-                                                  aria-hidden="true"
-                                                  className="dropdown-menu-end dropdown-menu"
-                                                >
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Copy
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Save
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Forward
-                                                  </a>
-                                                  <a
-                                                    href="#"
-                                                    tabIndex="0"
-                                                    role="menuitem"
-                                                    className="dropdown-item"
-                                                  >
-                                                    Delete
-                                                  </a>
-                                                </div>
-                                              </div>
-                                              <div className="ctext-wrap">
-                                                <div className="conversation-name">
-                                                  Henry Wells
-                                                </div>
-                                                <p>Wow that's great</p>
-                                                <p className="chat-time mb-0">
-                                                  <i className="bx bx-time-five align-middle me-1"></i>{" "}
-                                                  10:37
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                      <div className="p-2 chat-input-section mt-2">
-                                        <div className="row">
-                                          <div className="col">
-                                            <div className="position-relative">
-                                              <input
-                                                type="text"
-                                                className="form-control chat-input"
-                                                placeholder="Enter Message..."
-                                              />
-                                              {/* <div className="chat-input-links">
-                          <ul className="list-inline mb-0">
-                            <li className="list-inline-item">
-                              <a href="/chat">
-                                <i
-                                  className="mdi mdi-emoticon-happy-outline"
-                                  id="Emojitooltip"
-                                ></i>
-                              </a>
-                            </li>{" "}
-                            <li className="list-inline-item">
-                              <a href="/chat">
-                                <i
-                                  className="mdi mdi-file-image-outline"
-                                  id="Imagetooltip"
-                                ></i>
-                              </a>
-                            </li>{" "}
-                            <li className="list-inline-item">
-                              <a href="/chat">
-                                <i
-                                  className="mdi mdi-file-document-outline"
-                                  id="Filetooltip"
-                                ></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div> 
-                                            </div>
-                                          </div>
-                                          <div className="col-auto col">
-                                            <button
-                                              type="button"
-                                              className="btn-rounded chat-send btn btn-primary"
-                                            >
-                                              <i className="mdi mdi-send"></i>
-                                            </button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div> */}
                                 </div>
                               </div>
                             </div>
@@ -973,440 +650,398 @@ const OrdersTable = () => {
                           </a>
                         </div>
                       </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2546
-                        </a>
-                      </td>
-                      <td>William Cruz</td>
-                      <td>03 Oct 2019</td>
-                      <td>$374</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
-                          Paid
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fas fa-money-bill-alt me-1"></i> COD
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2545
-                        </a>
-                      </td>
-                      <td>Jacob Hunter</td>
-                      <td>04 Oct 2019</td>
-                      <td>$392</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
-                          Paid
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fa-cc-paypal me-1"></i> Paypal
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2544
-                        </a>
-                      </td>
-                      <td>Ronald Taylor</td>
-                      <td>04 Oct 2019</td>
-                      <td>$404</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-warning badge bg-warning rounded-pill">
-                          Refund
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fa-cc-visa me-1"></i> Visa
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2543
-                        </a>
-                      </td>
-                      <td>Barry Dick</td>
-                      <td>05 Oct 2019</td>
-                      <td>$412</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
-                          Paid
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fa-cc-mastercard me-1"></i> Mastercard
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2543
-                        </a>
-                      </td>
-                      <td>Barry Dick</td>
-                      <td>05 Oct 2019</td>
-                      <td>$412</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
-                          Paid
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fa-cc-mastercard me-1"></i> Mastercard
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2542
-                        </a>
-                      </td>
-                      <td>Juan Mitchell</td>
-                      <td>06 Oct 2019</td>
-                      <td>$384</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
-                          Paid
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fa-cc-paypal me-1"></i> Paypal
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2542
-                        </a>
-                      </td>
-                      <td>Juan Mitchell</td>
-                      <td>06 Oct 2019</td>
-                      <td>$384</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
-                          Paid
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fa-cc-paypal me-1"></i> Paypal
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2541
-                        </a>
-                      </td>
-                      <td>Jamal Burnett</td>
-                      <td>07 Oct 2019</td>
-                      <td>$380</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-danger badge bg-danger rounded-pill">
-                          Chargeback
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fa-cc-visa me-1"></i> Visa
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="selection-cell">
-                        <input type="checkbox" className="selection-input-4" />
-                      </td>
-                      <td>
-                        <a
-                          className="text-body fw-bold"
-                          href="/ecommerce-orders"
-                        >
-                          #SK2541
-                        </a>
-                      </td>
-                      <td>Jamal Burnett</td>
-                      <td>07 Oct 2019</td>
-                      <td>$380</td>
-                      <td>
-                        <span className="font-size-12 badge-soft-danger badge bg-danger rounded-pill">
-                          Chargeback
-                        </span>
-                      </td>
-                      <td>
-                        <i className="fab fa-cc-visa me-1"></i> Visa
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          className="btn-sm btn-rounded btn btn-primary"
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                      <td>
-                        <div className="d-flex gap-3">
-                          <a className="text-success" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-pencil font-size-18"
-                              id="edittooltip"
-                            ></i>
-                          </a>
-                          <a className="text-danger" href="/ecommerce-orders">
-                            <i
-                              className="mdi mdi-delete font-size-18"
-                              id="deletetooltip"
-                            ></i>
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
+                    </tr>) */}
+                    {/* // // <tr>
+                    // //   <td className="selection-cell">
+                    // //     <input type="checkbox" className="selection-input-4" />
+                    // //   </td>
+                    // //   <td> */}
+                    {/* // //       <div className="d-flex align-items-center">
+                    // <tr>
+                    //   <td className="selection-cell">
+                    //     <input type="checkbox" className="selection-input-4" />
+                    //   </td>
+                    //   <td>
+                    //     <a
+                    //       className="text-body fw-bold"
+                    //       href="/ecommerce-orders"
+                    //     >
+                    //       #SK2545
+                    //     </a>
+                    //   </td>
+                    //   <td>Jacob Hunter</td>
+                    //   <td>04 Oct 2019</td>
+                    //   <td>$392</td>
+                    //   <td>
+                    //     <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                    //       Paid
+                    //     </span>
+                    //   </td>
+                    //   <td>
+                    //     <i className="fab fa-cc-paypal me-1"></i> Paypal
+                    //   </td>
+                    //   <td>
+                    //     <Button
+                    //       type="button"
+                    //       className="btn-sm btn-rounded btn btn-primary"
+                    //     >
+                    //       View Details
+                    //     </Button>
+                    //   </td>
+                    //   <td>
+                    //     <div className="d-flex gap-3">
+                    //       <a className="text-success" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-pencil font-size-18"
+                    //           id="edittooltip"
+                    //         ></i>
+                    //       </a>
+                    //       <a className="text-danger" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-delete font-size-18"
+                    //           id="deletetooltip"
+                    //         ></i>
+                    //       </a>
+                    //     </div>
+                    //   </td>
+                    // </tr>
+                    // <tr>
+                    //   <td className="selection-cell">
+                    //     <input type="checkbox" className="selection-input-4" />
+                    //   </td>
+                    //   <td>
+                    //     <a
+                    //       className="text-body fw-bold"
+                    //       href="/ecommerce-orders"
+                    //     >
+                    //       #SK2544
+                    //     </a>
+                    //   </td>
+                    //   <td>Ronald Taylor</td>
+                    //   <td>04 Oct 2019</td>
+                    //   <td>$404</td>
+                    //   <td>
+                    //     <span className="font-size-12 badge-soft-warning badge bg-warning rounded-pill">
+                    //       Refund
+                    //     </span>
+                    //   </td>
+                    //   <td>
+                    //     <i className="fab fa-cc-visa me-1"></i> Visa
+                    //   </td>
+                    //   <td>
+                    //     <Button
+                    //       type="button"
+                    //       className="btn-sm btn-rounded btn btn-primary"
+                    //     >
+                    //       View Details
+                    //     </Button>
+                    //   </td>
+                    //   <td>
+                    //     <div className="d-flex gap-3">
+                    //       <a className="text-success" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-pencil font-size-18"
+                    //           id="edittooltip"
+                    //         ></i>
+                    //       </a>
+                    //       <a className="text-danger" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-delete font-size-18"
+                    //           id="deletetooltip"
+                    //         ></i>
+                    //       </a>
+                    //     </div>
+                    //   </td>
+                    // </tr>
+                    // <tr>
+                    //   <td className="selection-cell">
+                    //     <input type="checkbox" className="selection-input-4" />
+                    //   </td>
+                    //   <td>
+                    //     <a
+                    //       className="text-body fw-bold"
+                    //       href="/ecommerce-orders"
+                    //     >
+                    //       #SK2543
+                    //     </a>
+                    //   </td>
+                    //   <td>Barry Dick</td>
+                    //   <td>05 Oct 2019</td>
+                    //   <td>$412</td>
+                    //   <td>
+                    //     <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                    //       Paid
+                    //     </span>
+                    //   </td>
+                    //   <td>
+                    //     <i className="fab fa-cc-mastercard me-1"></i> Mastercard
+                    //   </td>
+                    //   <td>
+                    //     <Button
+                    //       type="button"
+                    //       className="btn-sm btn-rounded btn btn-primary"
+                    //     >
+                    //       View Details
+                    //     </Button>
+                    //   </td>
+                    //   <td>
+                    //     <div className="d-flex gap-3">
+                    //       <a className="text-success" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-pencil font-size-18"
+                    //           id="edittooltip"
+                    //         ></i>
+                    //       </a>
+                    //       <a className="text-danger" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-delete font-size-18"
+                    //           id="deletetooltip"
+                    //         ></i>
+                    //       </a>
+                    //     </div>
+                    //   </td>
+                    // </tr>
+                    // <tr>
+                    //   <td className="selection-cell">
+                    //     <input type="checkbox" className="selection-input-4" />
+                    //   </td>
+                    //   <td>
+                    //     <a
+                    //       className="text-body fw-bold"
+                    //       href="/ecommerce-orders"
+                    //     >
+                    //       #SK2543
+                    //     </a>
+                    //   </td>
+                    //   <td>Barry Dick</td>
+                    //   <td>05 Oct 2019</td>
+                    //   <td>$412</td>
+                    //   <td>
+                    //     <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                    //       Paid
+                    //     </span>
+                    //   </td>
+                    //   <td>
+                    //     <i className="fab fa-cc-mastercard me-1"></i> Mastercard
+                    //   </td>
+                    //   <td>
+                    //     <Button
+                    //       type="button"
+                    //       className="btn-sm btn-rounded btn btn-primary"
+                    //     >
+                    //       View Details
+                    //     </Button>
+                    //   </td>
+                    //   <td>
+                    //     <div className="d-flex gap-3">
+                    //       <a className="text-success" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-pencil font-size-18"
+                    //           id="edittooltip"
+                    //         ></i>
+                    //       </a>
+                    //       <a className="text-danger" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-delete font-size-18"
+                    //           id="deletetooltip"
+                    //         ></i>
+                    //       </a>
+                    //     </div>
+                    //   </td>
+                    // </tr>
+                    // <tr>
+                    //   <td className="selection-cell">
+                    //     <input type="checkbox" className="selection-input-4" />
+                    //   </td>
+                    //   <td>
+                    //     <a
+                    //       className="text-body fw-bold"
+                    //       href="/ecommerce-orders"
+                    //     >
+                    //       #SK2542
+                    //     </a>
+                    //   </td>
+                    //   <td>Juan Mitchell</td>
+                    //   <td>06 Oct 2019</td>
+                    //   <td>$384</td>
+                    //   <td>
+                    //     <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                    //       Paid
+                    //     </span>
+                    //   </td>
+                    //   <td>
+                    //     <i className="fab fa-cc-paypal me-1"></i> Paypal
+                    //   </td>
+                    //   <td>
+                    //     <Button
+                    //       type="button"
+                    //       className="btn-sm btn-rounded btn btn-primary"
+                    //     >
+                    //       View Details
+                    //     </Button>
+                    //   </td>
+                    //   <td>
+                    //     <div className="d-flex gap-3">
+                    //       <a className="text-success" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-pencil font-size-18"
+                    //           id="edittooltip"
+                    //         ></i>
+                    //       </a>
+                    //       <a className="text-danger" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-delete font-size-18"
+                    //           id="deletetooltip"
+                    //         ></i>
+                    //       </a>
+                    //     </div>
+                    //   </td>
+                    // </tr>
+                    // <tr>
+                    //   <td className="selection-cell">
+                    //     <input type="checkbox" className="selection-input-4" />
+                    //   </td>
+                    //   <td>
+                    //     <a
+                    //       className="text-body fw-bold"
+                    //       href="/ecommerce-orders"
+                    //     >
+                    //       #SK2542
+                    //     </a>
+                    //   </td>
+                    //   <td>Juan Mitchell</td>
+                    //   <td>06 Oct 2019</td>
+                    //   <td>$384</td>
+                    //   <td>
+                    //     <span className="font-size-12 badge-soft-success badge bg-success rounded-pill">
+                    //       Paid
+                    //     </span>
+                    //   </td>
+                    //   <td>
+                    //     <i className="fab fa-cc-paypal me-1"></i> Paypal
+                    //   </td>
+                    //   <td>
+                    //     <Button
+                    //       type="button"
+                    //       className="btn-sm btn-rounded btn btn-primary"
+                    //     >
+                    //       View Details
+                    //     </Button>
+                    //   </td>
+                    //   <td>
+                    //     <div className="d-flex gap-3">
+                    //       <a className="text-success" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-pencil font-size-18"
+                    //           id="edittooltip"
+                    //         ></i>
+                    //       </a>
+                    //       <a className="text-danger" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-delete font-size-18"
+                    //           id="deletetooltip"
+                    //         ></i>
+                    //       </a>
+                    //     </div>
+                    //   </td>
+                    // </tr>
+                    // <tr>
+                    //   <td className="selection-cell">
+                    //     <input type="checkbox" className="selection-input-4" />
+                    //   </td>
+                    //   <td>
+                    //     <a
+                    //       className="text-body fw-bold"
+                    //       href="/ecommerce-orders"
+                    //     >
+                    //       #SK2541
+                    //     </a>
+                    //   </td>
+                    //   <td>Jamal Burnett</td>
+                    //   <td>07 Oct 2019</td>
+                    //   <td>$380</td>
+                    //   <td>
+                    //     <span className="font-size-12 badge-soft-danger badge bg-danger rounded-pill">
+                    //       Chargeback
+                    //     </span>
+                    //   </td>
+                    //   <td>
+                    //     <i className="fab fa-cc-visa me-1"></i> Visa
+                    //   </td>
+                    //   <td>
+                    //     <Button
+                    //       type="button"
+                    //       className="btn-sm btn-rounded btn btn-primary"
+                    //     >
+                    //       View Details
+                    //     </Button>
+                    //   </td>
+                    //   <td>
+                    //     <div className="d-flex gap-3">
+                    //       <a className="text-success" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-pencil font-size-18"
+                    //           id="edittooltip"
+                    //         ></i>
+                    //       </a>
+                    //       <a className="text-danger" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-delete font-size-18"
+                    //           id="deletetooltip"
+                    //         ></i>
+                    //       </a>
+                    //     </div>
+                    //   </td>
+                    // </tr>
+                    // <tr>
+                    //   <td className="selection-cell">
+                    //     <input type="checkbox" className="selection-input-4" />
+                    //   </td>
+                    //   <td>
+                    //     <a
+                    //       className="text-body fw-bold"
+                    //       href="/ecommerce-orders"
+                    //     >
+                    //       #SK2541
+                    //     </a>
+                    //   </td>
+                    //   <td>Jamal Burnett</td>
+                    //   <td>07 Oct 2019</td>
+                    //   <td>$380</td>
+                    //   <td>
+                    //     <span className="font-size-12 badge-soft-danger badge bg-danger rounded-pill">
+                    //       Chargeback
+                    //     </span>
+                    //   </td>
+                    //   <td>
+                    //     <i className="fab fa-cc-visa me-1"></i> Visa
+                    //   </td>
+                    //   <td>
+                    //     <Button
+                    //       type="button"
+                    //       className="btn-sm btn-rounded btn btn-primary"
+                    //     >
+                    //       View Details
+                    //     </Button>
+                    //   </td>
+                    //   <td>
+                    //     <div className="d-flex gap-3">
+                    //       <a className="text-success" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-pencil font-size-18"
+                    //           id="edittooltip"
+                    //         ></i>
+                    //       </a>
+                    //       <a className="text-danger" href="/ecommerce-orders">
+                    //         <i
+                    //           className="mdi mdi-delete font-size-18"
+                    //           id="deletetooltip"
+                    //         ></i>
+                    //       </a>
+                    //     </div>
+                    //   </td>
+                    // </tr> */}
+                  {/* </tbody> */}
                 </table>
               </div>
             </div>
