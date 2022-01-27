@@ -1,27 +1,27 @@
 import createStore from "zustand";
-import AuthRep from "../services/authRepo";
+import AuthRep from "../services/authService";
 
-async function init(){
-    let response = await AuthRep.getUserList();
-    return response;
+async function init() {
+  let response = await AuthRep.getUserList();
+  return response;
 }
 const useUsers = createStore((set) => ({
   users: [],
   addUser: async (user) => {
     let response = await AuthRep.createUser(user);
     if (!response?.payload) {
-        alert("RESPonse", JSON.stringify(response));
-        return;
-    };
+      alert("RESPonse", JSON.stringify(response));
+      return;
+    }
     alert("User created");
     set((state) => ({
       users: [...state.users, response.payload.data],
     }));
   },
 
-  getUsers: async () => {
-      console.log("STATE CHANGED")
-    let response = await AuthRep.getUserList();
+  getUsers: async (query) => {
+    console.log("STATE CHANGED");
+    let response = await AuthRep.getUserList(query);
     console.log("RESPONSE", response);
     if (!response.payload.data) return;
     set((state) => ({

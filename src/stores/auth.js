@@ -1,5 +1,5 @@
 import createStore from "zustand";
-import AuthRep from "../services/authRepo";
+import AuthRep from "../services/authService";
 
 const useAuth = createStore((set) => ({
   auth: {
@@ -14,20 +14,20 @@ const useAuth = createStore((set) => ({
 
     if (response == null) return;
     set((state) => ({
-        auth: {
-            isAuthenticated: true,
-            user: response.payload.user,
-        },
+      auth: {
+        isAuthenticated: true,
+        user: response.payload.user,
+      },
     }));
   },
   logout: () => {
     set((state) => ({
-        auth: {
-            isAuthenticated: false,
-            user: {},
-        },
+      auth: {
+        isAuthenticated: false,
+        user: {},
+      },
     }));
-  }
+  },
 }));
 
 export default useAuth;

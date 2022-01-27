@@ -3,7 +3,7 @@ import e from "cors";
 import { useEffect, useState } from "react";
 import { Link, Redirect, useHistory, withRouter } from "react-router-dom";
 import { useUser } from "../Context/UserProvider";
-import AuthRep from "../services/authRepo";
+import AuthRep from "../services/authService";
 
 const Login = () => {
   const [formdata, setformdata] = useState({

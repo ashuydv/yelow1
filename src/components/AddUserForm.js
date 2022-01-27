@@ -15,6 +15,7 @@ const InputComponent = (props) => {
       </label>
       {props.children ? (
         <select
+          className="form-select"
           onChange={onChange}
           value={value}
         >{props.children}</select>

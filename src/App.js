@@ -20,8 +20,9 @@ import Sidebar from "./components/Sidebar";
 //import Dashboard from './components/Dashboard.js'
 import "./components/style.css";
 import Users from "./components/Users";
-import useUsers from "./stores/users";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 const Main = withRouter(({ location }) => {
   return (
     <div>
@@ -47,7 +48,6 @@ const Main = withRouter(({ location }) => {
     </div>
   );
 });
-useUsers.getState().getUsers();
 function App() {
   return (
     <div>
@@ -55,7 +55,9 @@ function App() {
       {/* <Header/>
         <Sidebar/>
         <Footer/> */}
-      <Main />
+      <QueryClientProvider client={queryClient}>
+        <Main />
+      </QueryClientProvider>
     </div>
   );
 }
