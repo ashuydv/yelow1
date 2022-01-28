@@ -112,7 +112,7 @@ const UserTable = (props) => {
                 <tbody>
                   {props.users.length > 0 ? (
                     props.users.map((user) => {
-                      const { id, name, email, password, phone_number, type } =
+                      const { uuid, name, email, password, phone_number, type } =
                         user;
                       return (
                         <tr>
@@ -127,12 +127,12 @@ const UserTable = (props) => {
                               className="text-body fw-bold"
                               href="/ecommerce-orders"
                             >
-                              #SK2541
+                              {uuid}
                             </a>
                           </td>
                           <td>{name}</td>
                           <td>{email}</td>
-                          <td>{password}</td>
+                          {/* <td>{password}</td> */}
                           <td>
                               {phone_number}
                           </td>
