@@ -7,6 +7,8 @@ async function init() {
 }
 const useUsers = createStore((set) => ({
   users: [],
+  numberOfPages : 0,
+  pageNumber : 1,
   addUser: async (user) => {
     let response = await AuthRep.createUser(user);
     if (!response?.payload) {
@@ -26,6 +28,8 @@ const useUsers = createStore((set) => ({
     if (!response.payload.data) return;
     set((state) => ({
       users: response.payload.data,
+      numberOfPages : response.payload.total_pages,
+      pageNumber : response.payload.page
     }));
   },
 
